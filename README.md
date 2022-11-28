@@ -39,6 +39,8 @@ This is a simple full stack application geared towards aiding students sitting f
   - Mongoose Models 
   - JSON Web Token
   - React Functional Components
+  - React Controlled Components
+  - React Pure Components
   - React useState / useEffect hooks
   - React Router Dom (For Routing)
   - React Prop Types for props checking 

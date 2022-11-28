@@ -3,8 +3,8 @@ import { Button } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login';
 // import { gapi } from "gapi-script";
 import handleAuth from './handleAuth'
-import { Icon } from '../../assests'
-import { useStyles } from '../styles'
+import { Icon } from '../assests'
+import { useStyles } from '../components/styles'
 const GOOGLE_CLIENT_ID = "18888730077-1n137rscdrhjqdmsl2dobtnah5dua920.apps.googleusercontent.com"
 // window.gapi.load('client:auth2', () => {
 //     window.gapi.client.init({

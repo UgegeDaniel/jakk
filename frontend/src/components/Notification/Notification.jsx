@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { Chip, Avatar } from '@material-ui/core'
-import {red, lightGreen} from '@material-ui/core/colors'
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
 import { useStyles } from '../styles'
 const Notification = ({ notification, setNotification }) => {
@@ -13,10 +13,10 @@ const Notification = ({ notification, setNotification }) => {
         return () => clearTimeout(cleanUp)
     })
     const danger = {
-        backgroundColor: red[500]
+        backgroundColor: "#FF6961"
     }
     const success = {
-        backgroundColor: lightGreen[500]
+        backgroundColor: "#77DD77"
     }
     return (
         <div className={classes.notification}>
@@ -24,4 +24,8 @@ const Notification = ({ notification, setNotification }) => {
         </div>
     )
 }
+Notification.propTypes = {
+    notification: PropTypes.object,
+    setNotification: PropTypes.func,
+};
 export default Notification
