@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import { AppBar, Toolbar, Avatar, Fab } from '@material-ui/core'
 import { FaDoorOpen } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useStyles, evenAvatar, oddAvatar } from '../styles'
+import { useStyles, evenAvatar, oddAvatar } from '../../styles'
 import { jamb, waec, neco } from '../../assests'
 import { logout } from '../../api/auth'
 const AppHeader = ({ setStudent, student }) => {
     const classes = useStyles();
     return (
         <div>
-            <AppBar color="primary">
+            <AppBar color="primary" position="relative">
                 <Toolbar className={classes.header}>
                     <Link to="/">
                         <div className={classes.logoContainer}>
@@ -24,7 +24,7 @@ const AppHeader = ({ setStudent, student }) => {
                     </Fab>}
                 </Toolbar>
             </AppBar>
-            <div className={classes.toolbar}>k</div>
+            {/* <div className={classes.toolbar}></div> */}
         </div >
     )
 }

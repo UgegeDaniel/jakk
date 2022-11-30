@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import { Box, Container, Paper, Typography, Button, TextField } from '@material-ui/core'
-import { useStyles, theme } from '../components/styles'
+import { useStyles, theme } from '../styles'
 import { useState } from 'react'
 import { FaKey, FaTimes } from "react-icons/fa"
 import { useLocation, Link } from 'react-router-dom'
 import GoogleButton from './GoogleButton';
 import handleAuth from './handleAuth'
 import inputProps from './input-props'
+import { Icon } from '../assests'
+import {welcomeText} from '../utils'
 
-const text = "JAKK is a simple full stack application geared towards aiding students sitting for various O - Level Examinations with a progressive and accessible means of practicising. Students are required to sign up for a free account, take tests in over 17 subjects as their records over time are being displayed on a chart for a visual representation of their progress."
-const Auth = ({ setNotification, setStudent }) => {
+const Home = ({ setNotification, setStudent }) => {
     const classes = useStyles();
     const [showForm, setShowForm] = useState(false);
     const [credentials, setCredentials] = useState({ userName: '', email: '', password: '', confirmPassword: '' })
@@ -23,15 +24,15 @@ const Auth = ({ setNotification, setStudent }) => {
         <Box container display="flex" justifyContent="center" align="center" style={{ position: "relative" }} >
             {!showForm &&
                 <div>
-                    <Typography color="secondary" style={{ margin: "2rem", maxWidth: "800px" }}>{text}</Typography>
-                    <Button variant="contained" color="primary" onClick={()=> setShowForm(true)}>Login / Sign up</Button>
+                    <Typography color="secondary" style={{ margin: "2rem", maxWidth: "800px" }}>{welcomeText}</Typography>
+                    <Button variant="contained" color="primary" onClick={()=> setShowForm(true)} startIcon={<Icon />}>Login / Sign up</Button>
                 </div>
             }
             {showForm &&
                 <Paper style={{ position: "absolute", top: "100%", left: "50%", transform: "translate(-50%, -50%)", marginTop: '2rem', width: "90%", maxWidth: "700px", height: "90%", border: `3px solid ${theme.palette.primary.main}` }}>
                     <form autoComplete="off" noValidate gutterbottom="true" display="flex" align="center" >
                         <Paper>
-                            <FaTimes onClick={()=> setShowForm(prevState => false)} style={{ fontSize: "1.5rem", position: "absolute", top: "0.8rem", right: "2rem", color: ` ${theme.palette.red.main}`}}/>
+                            <FaTimes onClick={()=> setShowForm(prevState => false)} style={{ fontSize: "1.5rem", position: "absolute", top: "0.8rem", right: "2rem", color: ` ${theme.palette.red.main}`, cursor:"pointer"}}/>
                             <Typography variant="h6" component="h2" gutterBottom color="textPrimary"> {isLogin ? 'Log In' : 'Sign Up'} </Typography>
                             <div className={classes.underline}></div>
                             <Container>
@@ -63,8 +64,8 @@ const Auth = ({ setNotification, setStudent }) => {
         </Box>
     )
 }
-Auth.propTypes = {
+Home.propTypes = {
     setNotification: PropTypes.func,
     setStudent: PropTypes.func,
 };
-export default Auth
+export default Home

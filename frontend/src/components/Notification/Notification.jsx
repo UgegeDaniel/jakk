@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Chip, Avatar } from '@material-ui/core'
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
-import { useStyles } from '../styles'
+import { useStyles } from '../../styles'
 const Notification = ({ notification, setNotification }) => {
     const classes = useStyles();
     const { msg, type } = notification

@@ -34,6 +34,7 @@ export const useStyles = makeStyles((theme) => ({
     mt: { marginTop: 20 },
     my: { marginTop: 10, marginBottom: 10 },
     ml: { marginLeft: 20 },
+    chipStyle : { margin: "0 0.25rem", color: "#fff", padding: "0.25rem 0.5rem", backgroundColor: `${theme.palette.primary.main}`, borderRadius: "2rem", minWidth: "1rem" },
     //      >>>>        APPHEADER
     header: { display: "flex", justifyContent: 'space-between', },
     logoContainer: { display: "flex", alignItems: "center", justifyContent: "center", },
@@ -43,6 +44,11 @@ export const useStyles = makeStyles((theme) => ({
     mobile: { position: 'fixed', display: 'flex', flexDirection: 'column', top: '10vh', right: '2vw' },
     avatar1: { margin: theme.spacing(1), backgroundColor: theme.palette.secondary.main, },
     toolbar: theme.mixins.toolbar,
+    //      >>>>        MODAL COMPONENT
+    modalStyle: { position: "relative", padding: "3rem", maxWidth: "80%" , margin: "3rem"},
+    closeModalStyle: { fontSize: "1.5rem", position: "absolute", top: "0.8rem", right: "1.5rem", color: ` ${theme.palette.red.main}`, cursor: "pointer" },
+    
+    
     //      >>>>        HERO
     middleImg: { marginLeft: 20, zIndex: 3 },
     bottomImg: { marginTop: -200, marginLeft: -120 },
@@ -60,10 +66,12 @@ export const useStyles = makeStyles((theme) => ({
     field: { marginTop: 10, marginBottom: 10, display: 'block', padding: 10, textAlign: 'center', fontSize: '8px' },
     paper: { padding: '40px' },
     img: { width: '150px', height: '150px', margin: '10px auto', borderRadius: '38% 62% 53% 47% / 40% 41% 59% 60%', border: '1px solid hsl(250, 34%, 43%)' },
+    paperStyle: { position: "relative", margin: "auto auto", marginLeft: "auto", width: "90%", maxWidth: "700px", maxHeight: "100vh", border: `3px solid ${theme.palette.primary.main}` },
+
     //      >>>>        NOTIFICATION
     notification: { position: "fixed", left: '20vw', marginTop: '20px', top: '10vh', zIndex: 3 },
     //      >>>>        QUESTIONS
-    option: {  ...theme.typography.body2, padding: theme.spacing(1), textAlign: 'center', color: theme.palette.text.secondary, borderRadius: constants.borderRadius},
+    option: { ...theme.typography.body2, padding: theme.spacing(1), textAlign: 'center', color: theme.palette.text.secondary, borderRadius: constants.borderRadius },
     //      >>>>  //      >>>> //      >>>> MEDIA QUERRIES <<<<<        //<<<<<         //<<<<<         //
     [theme.breakpoints.down('sm')]: {
         examBodies: { display: "none", },
@@ -86,4 +94,6 @@ export const evenAvatar = {
     backgroundColor: '#2A928F',
 }
 export const bouncingLogo = { width: "100%", height: "100%", borderRadius: "50%", marginLeft: "100px" }
+
+export const modalContainerStyle = { maxWidth: "700px" , margin: "5rem auto", }
 

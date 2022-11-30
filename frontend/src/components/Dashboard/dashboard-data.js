@@ -1,5 +1,7 @@
 // import moment from 'moment'
-export const getData = (dataToDisplay, currentSubjectData, theme) => {
+import { theme } from '../../styles'
+
+export const getData = (dataToDisplay = [], currentSubjectData ) => {
     return {
         // labels: dataToDisplay.map((data) => moment(data?.timeTaken).startOf('minute').fromNow()),
         labels: dataToDisplay.map((data) => (data?.timeTaken)),
@@ -22,22 +24,28 @@ export const options = {
 }
 
 export const getAverage = (student) => {
-    const scores = student?.history?.length !== 0 ? student?.history?.map((data) => parseInt(data?.scores)) : []
-    const size = scores?.length
-    if (student?.history?.length === 0) {
-        return 0
+    if (!student) {
+        return
     } else {
-        const total = (scores) => {
-            if(scores.length === 0){
-                return
-            }
-            const total = scores.reduce((total, score) => {
-                total += score;
+        const { history } = student;
+        const scores = history.map((data) => parseInt(data?.scores))
+        const size = scores.length
+        if (history.length === 0) {
+            return 0
+        } else {
+            const total = (scores) => {
+                if (scores.length === 0) {
+                    return
+                }
+                const total = scores.reduce((total, score) => {
+                    total += score;
+                    return total
+                }, 0)
                 return total
-            }, 0)
-            return total
+            }
+            const averageScore = (total(scores) / size).toFixed(2)
+            return { averageScore, scores }
         }
-        const averageScore = (total(scores) / size).toFixed(2)
-        return { averageScore, scores }
     }
+
 }

@@ -1,4 +1,4 @@
-import { useStyles, bouncingLogo } from '../styles'
+import { useStyles, bouncingLogo } from '../../styles'
 import { jamb, waec, neco } from '../../assests'
 const BouncingLoader = () => {
     const classes = useStyles();
