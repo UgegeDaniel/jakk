@@ -6,7 +6,7 @@ const ParamsBody = ({ testParams, years, subjects, handleChange }) => {
         < React.Fragment >
             <DropDown labelName="Subject" value={subject} name="subject" handleChange={handleChange} items={subjects} />
             <DropDown labelName="Year" value={year} name="year" handleChange={handleChange} items={years} />
-            <DropDown labelName="Exam Type" value={examType} name="examtype" handleChange={handleChange} items={["UTME"]} disabled />
+            <DropDown labelName="Exam Type" value={examType} name="examType" handleChange={handleChange} items={["utme"]} disabled />
         </ React.Fragment >
     )
 }

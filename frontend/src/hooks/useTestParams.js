@@ -29,7 +29,7 @@ const useTestParams = () => {
                 return
             }
         }
-        fetchData()
+        subject && fetchData()
     }, [subject, year])
     return {testParams, setTestParams, subjects, years}
 }

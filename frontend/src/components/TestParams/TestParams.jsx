@@ -5,7 +5,6 @@ import ParamsFooter from './ParamsFooter'
 const TestParams = ({testParams, setTestParams, years, subjects}) => {
     const handleChange = (e) => {
         setTestParams({ ...testParams, [e.target.name]: e.target.value })
-        console.log(e.target)
     }
 
     return (
@@ -15,7 +14,7 @@ const TestParams = ({testParams, setTestParams, years, subjects}) => {
             </Typography>
             <ParamsBody testParams={testParams} years={years} subjects={subjects} handleChange={handleChange} />
             <div>
-                <ParamsFooter />
+                <ParamsFooter {...testParams}/>
             </div>
         </React.Fragment>
     )
