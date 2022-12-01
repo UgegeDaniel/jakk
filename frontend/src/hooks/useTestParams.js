@@ -31,7 +31,6 @@ const useTestParams = () => {
         }
         fetchData()
     }, [subject, year])
-
     return {testParams, setTestParams, subjects, years}
 }
 

@@ -14,6 +14,7 @@ const useTimer = () => {
         }, 3000)
         return () => clearInterval(cleanUp)
     }, [timer])
+    return {timer, setTimer}
 }
 
 export default useTimer;

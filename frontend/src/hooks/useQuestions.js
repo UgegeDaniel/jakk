@@ -1,38 +1,32 @@
-  //import { fetchQuestions } from './api'
+import { useState, useEffect } from 'react'
+import { fetchQuestions } from '../api'
 
-  //TEST STARTED
-  // useEffect(() => {
-  //   const { subject, year, examtype } = testParams
-  //   if (subject && year) {
-  //     const fetchData = async () => {
-  //       const data = await fetchQuestions(subject, year, examtype)
-  //       if (data?.length > 0) {
-  //         // setQuestions(data)
-  //         setReviewQuestions(data)
-  //         setTimer({ hour: 2, minute: 0, second: 0 })
-  //       }
-  //       else {
-  //         return
-  //       }
-  //     }
-  //     fetchData()
-  //   }
-  // }, [testParams])
+const useQuestions = ({ testParams, setTimer }) => {
+  const [questions, setQuestions] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchQuestions(testParams.subject, testParams.year, testParams.examtype)
+      if (data?.length > 0) {
+        setTimer({ hour: 2, minute: 0, second: 0 })
+        data.map((question, index) => (
+          {
+            ...question,
+            userChoice: "",
+            options: Object.keys(question.option),
+            number: index + 1,
+          }
+        ))
+      }
+      else {
+        return
+      }
+    }
+    testParams && fetchData()
+  }, [testParams, setTimer])
+  return {
+    questions,
+    setQuestions
+  }
+}
+export default useQuestions
 
-  //TEST CONCLUDED
-  // useEffect(()=>{
-  //   if(submitted){
-  //     const testSubmitted = () => {
-  //       const login = JSON.parse(localStorage.getItem('student'))
-  //       if (login) {
-  //         setStudent(login)
-  //       }
-  //       localStorage.removeItem('timer')
-  //       // setQuestions([])
-  //       setTestParams({ subject: '', year: '', examtype: 'utme' })
-  //       setTimer({ hour: 0, minute: 0, second: 0 })
-  //       setSubmitted(false)
-  //     }
-  //     testSubmitted()
-  //   }
-  // },[submitted, timer])

@@ -1,6 +1,5 @@
 import { login, signup } from '../../api'
-const handleAuth = async (e, authParams) => {
-    const {isLogin, credentials, setStudent, setNotification} = authParams
+const handleAuth = async (e, isLogin, credentials, setStudent, setNotification) => {
     e && e.preventDefault();
     if (isLogin) {
         const response = await login(credentials)

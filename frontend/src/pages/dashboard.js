@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 import { Paper, Card } from '@material-ui/core'
 import { useStyles } from '../styles'
 import {
-    DashBoardHeader,
-    DashBoardBody,
-    LeftBtn,
-    ModalComponent,
-    TestParams
+    DashBoardHeader, DashBoardBody,
+    LeftBtn, ModalComponent, TestParams
 } from '../components'
 
-const Dashboard = memo(({ student }) => {
+const Dashboard = memo(({ student, testParams, setTestParams, years, subjects }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
-
+    const paramProps = {testParams, setTestParams, years, subjects}
     return (
         <div className={classes.mc}>
             <Paper className={classes.paperStyle}>
@@ -25,7 +22,7 @@ const Dashboard = memo(({ student }) => {
                 </Card>
             </Paper>
             <ModalComponent open={open} setOpen={setOpen} >
-                <TestParams />
+                <TestParams {...paramProps} />
             </ModalComponent>
         </div>
     )
