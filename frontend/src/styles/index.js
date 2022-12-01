@@ -95,6 +95,7 @@ export const evenAvatar = {
 }
 export const bouncingLogo = { width: "100%", height: "100%", borderRadius: "50%", marginLeft: "100px" }
 export const modalContainerStyle = { maxWidth: "700px", margin: "5rem auto", display: "flex", alignItems: "center", justifyContent: "center" }
+export let optionAvatarStyle ={};
 export const handleChoiceStyle = (item, review, answer, userChoice) => {
     let backgroundColor;
     if (!review) {
@@ -102,13 +103,14 @@ export const handleChoiceStyle = (item, review, answer, userChoice) => {
     } else {
         backgroundColor = ((userChoice === item) ? theme.palette.red.main : answer === item ? theme.palette.green.main : theme.palette.secondary.main) 
     }
+    optionAvatarStyle = { width: 24, height: 24, fontSize: 12 }
     return {
         fontSize: "12px",
         display: "block",
         backgroundColor,
         color: '#fff',
-        cursor: "pointer"
+        cursor: "pointer",
+        textAlign: "center"
     }
 }
-export const optionAvatarStyle = (item, userChoice) => ({ width: 24, height: 24, fontSize: 12, backgroundColor: (userChoice === item) ? theme.palette.primary.main : theme.palette.secondary.main })
 
