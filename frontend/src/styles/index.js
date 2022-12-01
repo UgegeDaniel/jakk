@@ -12,6 +12,7 @@ export const theme = createTheme({
         primary: { main: '#324B4A' },
         secondary: { main: '#2A928F' },
         red: { main: '#FF6961' },
+        green: { main: '#77DD77' },
     },
     typography: { fontFamily: 'Poppins', fontWeightLight: 400, fontWeightRegular: 500, fontWeightMedium: 600, fontWeightBold: 700, }
 })
@@ -27,14 +28,13 @@ export const useStyles = makeStyles((theme) => ({
     },
     //      >>>>        UTILITIES
     underline: { height: "0.25rem", width: "5rem", background: theme.palette.primary.main, marginLeft: "auto", marginRight: "auto", borderRadius: constants.borderRadius },
-    btn: { borderRadius: "15px" },
     flex: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px', flexWrap: 'wrap' },
     mc: { margin: '10px auto', display: 'block', width: 'auto' },
     mr: { marginRight: 20, marginTop: 20, marginBottom: 5 },
     mt: { marginTop: 20 },
     my: { marginTop: 10, marginBottom: 10 },
     ml: { marginLeft: 20 },
-    chipStyle : { margin: "0 0.25rem", color: "#fff", padding: "0.25rem 0.5rem", backgroundColor: `${theme.palette.primary.main}`, borderRadius: "2rem", minWidth: "1rem" },
+    chipStyle: { margin: "0 0.25rem", color: "#fff", padding: "0.5rem", backgroundColor: `${theme.palette.primary.main}`, borderRadius: "2rem", minWidth: "1rem", },
     //      >>>>        APPHEADER
     header: { display: "flex", justifyContent: 'space-between', },
     logoContainer: { display: "flex", alignItems: "center", justifyContent: "center", },
@@ -45,10 +45,10 @@ export const useStyles = makeStyles((theme) => ({
     avatar1: { margin: theme.spacing(1), backgroundColor: theme.palette.secondary.main, },
     toolbar: theme.mixins.toolbar,
     //      >>>>        MODAL COMPONENT
-    modalStyle: { position: "relative", padding: "3rem", maxWidth: "80%" , margin: "3rem"},
-    closeModalStyle: { fontSize: "1.5rem", position: "absolute", top: "0.8rem", right: "1.5rem", color: ` ${theme.palette.red.main}`, cursor: "pointer" },
-    
-    
+    modalStyle: { position: "relative", padding: "1rem", maxWidth: "80%", margin: "3rem" },
+    closeModalStyle: { fontSize: "1rem", position: "absolute", top: "0", right: "0", color: ` ${theme.palette.red.main}`, cursor: "pointer", borderRadius: "50%", border: `2px solid ${theme.palette.red.main}`, padding: "5px" },
+
+
     //      >>>>        HERO
     middleImg: { marginLeft: 20, zIndex: 3 },
     bottomImg: { marginTop: -200, marginLeft: -120 },
@@ -69,7 +69,7 @@ export const useStyles = makeStyles((theme) => ({
     paperStyle: { position: "relative", margin: "auto auto", marginLeft: "auto", width: "90%", maxWidth: "700px", maxHeight: "100vh", border: `3px solid ${theme.palette.primary.main}` },
 
     //      >>>>        NOTIFICATION
-    notification: { position: "fixed", left: '20vw', marginTop: '20px', top: '10vh', zIndex: 3 },
+    notification: { position: "fixed", left: '20vw', marginTop: '20px', top: '10vh', zIndex: 99999 },
     //      >>>>        QUESTIONS
     option: { ...theme.typography.body2, padding: theme.spacing(1), textAlign: 'center', color: theme.palette.text.secondary, borderRadius: constants.borderRadius },
     //      >>>>  //      >>>> //      >>>> MEDIA QUERRIES <<<<<        //<<<<<         //<<<<<         //
@@ -94,6 +94,21 @@ export const evenAvatar = {
     backgroundColor: '#2A928F',
 }
 export const bouncingLogo = { width: "100%", height: "100%", borderRadius: "50%", marginLeft: "100px" }
-
-export const modalContainerStyle = { maxWidth: "700px" , margin: "5rem auto", }
+export const modalContainerStyle = { maxWidth: "700px", margin: "5rem auto", display: "flex", alignItems: "center", justifyContent: "center" }
+export const handleChoiceStyle = (item, review, answer, userChoice) => {
+    let backgroundColor;
+    if (!review) {
+        backgroundColor = (userChoice === item) ? theme.palette.primary.main : theme.palette.secondary.main
+    } else {
+        backgroundColor = ((userChoice === item) ? theme.palette.red.main : answer === item ? theme.palette.green.main : theme.palette.secondary.main) 
+    }
+    return {
+        fontSize: "12px",
+        display: "block",
+        backgroundColor,
+        color: '#fff',
+        cursor: "pointer"
+    }
+}
+export const optionAvatarStyle = (item, userChoice) => ({ width: 24, height: 24, fontSize: 12, backgroundColor: (userChoice === item) ? theme.palette.primary.main : theme.palette.secondary.main })
 

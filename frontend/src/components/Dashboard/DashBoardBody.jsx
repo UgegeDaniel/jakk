@@ -5,6 +5,7 @@ import Chart from 'chart.js/auto';
 import { CardContent, Typography } from '@material-ui/core'
 import { useStyles } from '../../styles'
 import { getData, options, getAverage } from './dashboard-data'
+import { ItalisizedTypography } from '../'
 
 const DashBoardBody = ({ student }) => {
     const [barChart, setBarChart] = useState(false)
@@ -19,33 +20,33 @@ const DashBoardBody = ({ student }) => {
 
     return (
         < CardContent >
-            <Typography color="primary" component="i">
+            <ItalisizedTypography>
                 You have taken
                 <span className={classes.chipStyle}>{student ? history.length : 0}</span>
                 Test(s).
-            </Typography>
+            </ItalisizedTypography>
             <div className={classes.flex}>{history.length !== 0 && subjectsTaken.map((item, index) =>
-                <span key={index} className={classes.chipStyle} style={{color: chipColor(item)}}
+                <span key={index} className={classes.chipStyle} style={{ color: chipColor(item) }}
                     onClick={(e) => setCurrentSubjectData(e.target.textContent)}>
                     {item}
                 </span>
             )}
             </div>
-            <Typography align="left" component="i">Would you like a
+            <ItalisizedTypography>Would you like a
                 <span className={classes.chipStyle} onClick={(e) => setBarChart(!barChart)}>
                     {barChart ? 'Line Chart' : 'Bar Chart'}
                 </span>
                 instaed ?
-            </Typography>
+            </ItalisizedTypography>
             {barChart && <Bar data={data} className={classes.chart} options={options} />}
             {!barChart && <Line data={data} className={classes.chart} options={options} />}
-            <Typography color="primary" component="i">
+            <ItalisizedTypography>
                 You have an overall average of
                 <span className={classes.chipStyle}>
                     {averageScore ? averageScore : 0}
                 </span>
                 % per test
-            </Typography>
+            </ItalisizedTypography>
         </CardContent >
     )
 }

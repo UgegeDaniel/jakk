@@ -2,24 +2,32 @@ import { useState } from 'react'
 import PropTypes from 'prop-types';
 import { Container, Typography, TextField } from '@material-ui/core'
 import inputProps from './input-props'
-import { useStyles } from '../styles'
-const Inputs = ({ isLogin, credentials, setCredentials }) => {
+import { useStyles } from '../../styles'
+
+const Inputs = ({ isLogin, credentials, handleChange }) => {
     const [showPassword, setShowPassword] = useState(false)
     const classes = useStyles()
     const data = inputProps(credentials, isLogin, setShowPassword, showPassword)
+    const exampleStyle = { fontSize: "0.75rem", margin: "auto", display: "block", width: "100%", marginLeft: "auto" }
+
     return (
         <Container>
-            {data.map((item, index) => (
-                item.show &&
+        {data.map((feild, index) => {
+            const { show, label, name, value, type, props, example } = feild
+            return (
+                show &&
                 <div key={index}>
-                    <TextField className={classes.field} variant='outlined' label={item.label} fullWidth align="center" size="small"
-                        InputProps={item.props} type={item.type} value={item.value} name={item.name}
-                        onChange={(e) => { setCredentials({ ...credentials, [e.target.name]: e.target.value }) }} />
-                    {item.show && <Typography variant="caption" align="left" fontSize="12px" gutterBottom color="secondary"
-                        className={classes.inputExample}>{item.example}</Typography>}
+                    <TextField className={classes.field} variant='outlined' label={label} fullWidth align="center" size="small"
+                        InputProps={props} type={type} value={value} name={name}
+                        onChange={handleChange} color="secondary" />
+                    <Typography component="i" variant="caption" align="right" fontSize="12px" gutterBottom color="secondary"
+                        style={exampleStyle}>
+                        {example}
+                    </Typography>
                 </div>
-            ))}
-        </Container>
+            )
+        })}
+    </Container>
     )
 }
 Inputs.propTypes = {
