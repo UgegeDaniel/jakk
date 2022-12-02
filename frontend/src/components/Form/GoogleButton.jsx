@@ -1,25 +1,25 @@
 import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login';
-// import { gapi } from "gapi-script";
-// import handleAuth from './handleAuth'
+import { gapi } from "gapi-script";
+import handleAuth from './handleAuth'
 import { Icon } from '../../assests'
 const GOOGLE_CLIENT_ID = "18888730077-1n137rscdrhjqdmsl2dobtnah5dua920.apps.googleusercontent.com"
-// window.gapi.load('client:auth2', () => {
-//     window.gapi.client.init({
-//         clientId: GOOGLE_CLIENT_ID,
-//         plugin_name: "chat"
-//     })
-// })
+window.gapi.load('client:auth2', () => {
+    window.gapi.client.init({
+        clientId: GOOGLE_CLIENT_ID,
+        plugin_name: "chat"
+    })
+})
 const GoogleButton = ({ setNotification, isLogin, setStudent }) => {
     const googleSuccess = async (res, e) => {
-        // const result = await res?.profileObj;
-        // const { email, googleId, name: userName } = result
-        // const password = `${googleId}jakkJAKK!@#`
-        // const credentials = { email, password, userName }
-        // const authParams = { isLogin, credentials, setStudent, setNotification }
+        const result = await res?.profileObj;
+        const { email, googleId, name: userName } = result
+        const password = `${googleId}jakkJAKK!@#`
+        const credentials = { email, password, userName }
+        const authParams = { isLogin, credentials, setStudent, setNotification }
         try {
-            // await handleAuth(e, authParams)
+            await handleAuth(e, authParams)
         } catch (error) {
             console.log(error);
         }

@@ -3,6 +3,7 @@ import { fetchQuestions } from '../api'
 
 const useQuestions = ({ testParams, setTimer }) => {
   const [questions, setQuestions] = useState([]);
+  console.log(testParams)
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchQuestions(testParams.subject, testParams.year, testParams.examtype)

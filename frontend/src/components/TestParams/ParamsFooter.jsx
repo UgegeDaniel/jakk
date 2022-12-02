@@ -1,11 +1,9 @@
 import React from 'react';
 import { LeftBtn, ItalisizedTypography } from '../'
 import { useStyles } from '../../styles'
-import {useNavigate} from 'react-router-dom'
 
 const ParamsFooter = ({subject, examType, year}) => {
     const classes = useStyles();
-    const navigate = useNavigate()
     return (
         <React.Fragment>
             <div style={{marginTop: "0.5rem", display:"flex"}}>
@@ -19,7 +17,7 @@ const ParamsFooter = ({subject, examType, year}) => {
                 <span className={classes.chipStyle}> 2 hours
                 </span>
             </ItalisizedTypography>
-            <LeftBtn btnTxt="Take Test" onClick={()=> navigate("/questions")}/>
+            <LeftBtn btnTxt="Take Test" link="/questions"/>
         </React.Fragment>
     )
 }

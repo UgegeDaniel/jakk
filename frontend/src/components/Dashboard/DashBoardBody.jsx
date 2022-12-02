@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Line, Bar } from 'react-chartjs-2'
 import Chart from 'chart.js/auto';
-import { CardContent, Typography } from '@material-ui/core'
+import { CardContent } from '@material-ui/core'
 import { useStyles } from '../../styles'
 import { getData, options, getAverage } from './dashboard-data'
 import { ItalisizedTypography } from '../'
@@ -25,8 +25,9 @@ const DashBoardBody = ({ student }) => {
                 <span className={classes.chipStyle}>{student ? history.length : 0}</span>
                 Test(s).
             </ItalisizedTypography>
-            <div className={classes.flex}>{history.length !== 0 && subjectsTaken.map((item, index) =>
-                <span key={index} className={classes.chipStyle} style={{ color: chipColor(item) }}
+            <div style={{display:"flex", alignItems: "center", justifyContent: "center", margin: "1rem auto" }}>{history.length !== 0 && subjectsTaken.map((item, index) =>
+                <span key={index} className={classes.chipStyle} 
+                style={{ color: chipColor(item), backgroundColor: "#fff", fontSize: "14px", border: `2px solid ${chipColor(item)}` }}
                     onClick={(e) => setCurrentSubjectData(e.target.textContent)}>
                     {item}
                 </span>

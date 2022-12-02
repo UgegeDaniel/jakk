@@ -17,7 +17,7 @@ const Dashboard = memo(({ student, testParams, setTestParams, years, subjects })
             <Paper className={classes.paperStyle}>
                 <Card elevation={3}>
                     <DashBoardHeader student={student} />
-                    <DashBoardBody />
+                    <DashBoardBody  student={student}/>
                     <LeftBtn btnTxt="Take A Test" handleClick={handleOpen} />
                 </Card>
             </Paper>

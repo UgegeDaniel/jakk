@@ -4,7 +4,7 @@ import { Container, Button, Paper } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { useStyles } from '../styles'
 // import {  Timer } from '../components/Question'
-import { Skeleton } from '../components'
+import { LeftBtn, Skeleton } from '../components'
 import { ModalComponent, Results, SubmitAlert, QuestionCard } from '../components'
 
 const Questions = ({ questions, setQuestions }) => {
@@ -28,7 +28,7 @@ const Questions = ({ questions, setQuestions }) => {
             {questions.length === 0 ?
                 <div>
                     <Skeleton />
-                    <Link to="/dashboard"><Button variant='contained' color="primary" size="small" >Go back to Dashboard</Button></Link>
+                    <LeftBtn btnTxt="Go back to Dashboard" link="/dashboard" />
                 </div>
                 :
                 (<Paper >

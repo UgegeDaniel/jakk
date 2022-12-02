@@ -1,10 +1,9 @@
-// import moment from 'moment'
+import moment from 'moment'
 import { theme } from '../../styles'
 
 export const getData = (dataToDisplay = [], currentSubjectData ) => {
     return {
-        // labels: dataToDisplay.map((data) => moment(data?.timeTaken).startOf('minute').fromNow()),
-        labels: dataToDisplay.map((data) => (data?.timeTaken)),
+        labels: dataToDisplay.map((data) => moment(data?.timeTaken).startOf('minute').fromNow()),
         datasets: [
             {
                 label: dataToDisplay?.length > 0 ? `Scores (%) in ${currentSubjectData.toUpperCase()}` : '',
