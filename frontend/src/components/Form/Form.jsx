@@ -1,6 +1,7 @@
 import { useState, memo } from 'react'
 import PropTypes from 'prop-types';
 import { Button, Typography, Paper, } from '@material-ui/core'
+import {useNavigate} from 'react-router-dom'
 import { FaKey } from "react-icons/fa"
 import Inputs from './Inputs';
 import GoogleButton from './GoogleButton';
@@ -11,6 +12,7 @@ const Form = memo(({ setStudent, setNotification }) => {
     const [credentials, setCredentials] = useState({ userName: '', email: '', password: '', confirmPassword: '' })
     const { password, confirmPassword } = credentials
     const [isLogin, setIsLogin] = useState(false)
+    const navigate = useNavigate();
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
@@ -18,7 +20,7 @@ const Form = memo(({ setStudent, setNotification }) => {
         if (password !== confirmPassword) {
             setNotification({ show: false, msg: 'Passwords Do Not Match', type: 'danger' })
         } else {
-            handleAuth(e, isLogin, credentials, setStudent, setNotification)
+            handleAuth(e, isLogin, credentials, setStudent, setNotification, navigate)
         }
     }
     return (
