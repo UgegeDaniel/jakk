@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AppHeader, Notification } from './components'
 import { Home, Dashboard, Questions } from './pages'
@@ -9,9 +9,13 @@ const App = () => {
   const { student, setStudent } = useStudent();
   const { testParams, setTestParams, subjects, years } = useTestParams()
   const { timer, setTimer } = useTimer()
+
+  useEffect(() => {
+    console.log(testParams)
+  }, [testParams])
+
   const { questions, setQuestions } = useQuestions(testParams, setTimer)
   const paramProps = { testParams, setTestParams, years, subjects }
-
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", minHeight: "100vh" }}>
       <AppHeader setStudent={setStudent} student={student} />
