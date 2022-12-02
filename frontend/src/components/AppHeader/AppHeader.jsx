@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { useStyles, evenAvatar, oddAvatar } from '../../styles'
 import { jamb, waec, neco } from '../../assests'
 import { logout } from '../../api/auth'
+import {LeftBtn} from "../"
+
 const AppHeader = ({ setStudent, student }) => {
     const classes = useStyles();
     return (
@@ -13,18 +15,15 @@ const AppHeader = ({ setStudent, student }) => {
                 <Toolbar className={classes.header}>
                     <Link to="/">
                         <div className={classes.logoContainer}>
-                            {['J', 'A', 'K', 'K'].map((letter, index) => (<Avatar style={index % 2 === 0 ? evenAvatar : oddAvatar} key={index}>{letter}</Avatar>))}
+                            {"J A K K".split(" ").map((letter, index) => (<Avatar style={index % 2 === 0 ? evenAvatar : oddAvatar} key={index}>{letter}</Avatar>))}
                         </div>
                     </Link>
                     <div className={`${classes.logoContainer} ${classes.examBodies}`}>
                         {[jamb, waec, neco].map((logo, index) => (<div className={classes.logo} key={index}><img className={classes.logoStyle} src={logo} alt='exam body logo' /></div>))}
                     </div>
-                    {student && <Fab variant="extended" color="secondary" onClick={() => logout(setStudent)} >
-                        {student && <FaDoorOpen style={{ margin: 'auto 5px' }} />} Log out
-                    </Fab>}
+                    {student && <LeftBtn btnTxt="Log out" handleClick={() => logout(setStudent)} Icon={FaDoorOpen} />}
                 </Toolbar>
             </AppBar>
-            {/* <div className={classes.toolbar}></div> */}
         </div >
     )
 }
