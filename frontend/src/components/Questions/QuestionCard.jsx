@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { CardContent, Card } from '@material-ui/core'
 import { LeftBtn, QuestionBody, Options, QuestionNavigations, Timer } from '..'
 import { useStyles } from '../../styles'
+import { useTimer } from '../../hooks'
 
-const QuestionCard = ({ handleOpen, questions, setQuestions, review, timer, onTime }) => {
+const QuestionCard = ({ handleOpen, questions, setQuestions, review }) => {
     const [questionIndex, setQuestionIndex] = useState(0)
     const currentQuestion = questions[questionIndex]
     const classes = useStyles()
-    const { hour, minute, second } = timer
-    useEffect(() => {
-        onTime()
-        return
-    }, [onTime])
+    const { timer } = useTimer()
+
     const handleChoice = (e) => {
         setQuestions((prevState) => prevState.map((item) => {
             return (item.number === questionIndex + 1) ? { ...item, userChoice: e.target.id } : item

@@ -5,19 +5,21 @@ import { useStyles } from '../styles'
 import { LeftBtn, Skeleton } from '../components'
 import { ModalComponent, Results, SubmitAlert, QuestionCard } from '../components'
 
-const Questions = ({ questions, setQuestions, timer, onTime }) => {
+const Questions = ({ questions, setQuestions }) => {
     const classes = useStyles()
     const [submitted, setSubmitted] = useState(false);
     const [showResults, setShowResults] = useState(false);
     const [review, setReview] = useState(false);
     const attempts = questions.length && questions.filter((item) => item.userChoice)
     const wrong = questions.length && attempts?.filter((item) => item.userChoice !== item.answer)
+    const notAttempted = questions.length && questions.filter((item) => !item.userChoice)
+    const toReview = [...wrong, ...notAttempted]
     const correct = questions.length && attempts?.filter((item) => item.userChoice === item.answer)
     const showReview = () => {
         setReview(true);
         setShowResults(false);
         setSubmitted(false)
-        wrong.length && setQuestions(wrong);
+        toReview.length && setQuestions(toReview);
     }
 
     return (
@@ -31,7 +33,7 @@ const Questions = ({ questions, setQuestions, timer, onTime }) => {
                 (<Paper >
                     <Container >
                         {submitted
-                            ? <ModalComponent open={submitted} setOpen={setSubmitted}>
+                            ? <ModalComponent open={submitted} setOpen={setSubmitted} noClose>
                                 <SubmitAlert setShowResults={setShowResults} />
                             </ModalComponent>
                             : <QuestionCard
@@ -39,13 +41,11 @@ const Questions = ({ questions, setQuestions, timer, onTime }) => {
                                 review={review}
                                 setQuestions={setQuestions}
                                 handleOpen={() => setSubmitted(true)}
-                                timer={timer}
-                                onTime={onTime}
                             />
                         }
                         {showResults
                             && <ModalComponent open={showResults} setOpen={() => setShowResults(false)}>
-                                <Results attempts={attempts} correct={correct} wrong={wrong} showReview={showReview} />
+                                <Results attempts={attempts} correct={correct} wrong={wrong} showReview={showReview} toReview={toReview}/>
                             </ModalComponent>}
                     </Container>
                 </Paper>)

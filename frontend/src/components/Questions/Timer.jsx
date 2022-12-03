@@ -8,9 +8,9 @@ const Timer = ({ timer }) => {
 
     return (
         <div style={{marginRight: "auto"}}>
-            <Time hms={hour}/>
-            <Time hms={minute}/>
-            <Time hms={second}/>
+            <Time hms={hour < 10 ? `0${hour}` : hour}/>
+            <Time hms={minute < 10 ? `0${minute}` : minute}/>
+            <Time hms={second < 10 ? `0${second}` : second}/>
         </div>
     )
 }

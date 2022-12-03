@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { fetchQuestions } from '../api'
 import { dummyData as dummyQuestions } from '../dummyData';
 
-const useQuestions = (testParams, setTestStart) => {
+const useQuestions = (testParams) => {
   const [questions, setQuestions] = useState([]);
   const { subject, year, examtype } = testParams
   useEffect(() => {
@@ -14,7 +14,6 @@ const useQuestions = (testParams, setTestStart) => {
         number: index + 1,
       }
     )));
-    setTestStart(true)
     // const fetchData = async () => {
     //   const data = await fetchQuestions(subject, year, examtype)
     //   console.log({ data })
@@ -28,7 +27,7 @@ const useQuestions = (testParams, setTestStart) => {
     // }
     // year && fetchData()
     // }, [subject, year, examtype, setTimer])
-  }, [setTestStart])
+  }, [])
   return {
     questions,
     setQuestions

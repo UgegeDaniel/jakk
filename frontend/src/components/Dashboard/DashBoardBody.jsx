@@ -19,7 +19,7 @@ const DashBoardBody = ({ student }) => {
     const chipColor = (item) => item === currentSubjectData ? '#324B4A' : '#2A928F' //style for current subject
 
     return (
-        < CardContent >
+        < CardContent style={{marginTop: "-1.5rem"}}>
             <ItalisizedTypography>
                 You have taken
                 <span className={classes.chipStyle}>{student ? history.length : 0}</span>

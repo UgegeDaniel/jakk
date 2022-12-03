@@ -5,8 +5,8 @@ const SubmitAlert = ({ setShowResults }) => (
     <React.Fragment>
         <Typography align="center" color="secondary">Test Submitted 🎉🎉🎉</Typography>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <LeftBtn btnTxt="Go Back To Dashboard" />
-            <LeftBtn handleClick={() => setShowResults(true)} btnTxt="See Results And Review" secondary />
+            <LeftBtn btnTxt="Dashboard" />
+            <LeftBtn handleClick={() => setShowResults(true)} btnTxt="Results" secondary />
         </div>
     </React.Fragment>
 )

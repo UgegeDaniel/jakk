@@ -11,19 +11,20 @@ const DashBoardHeader = ({ student }) => (
             </IconButton>
         }
         title={
-            <Chip
-                style={{ color: "#fff" }}
-                avatar={<Avatar>{<FaUser />}</Avatar>}
-                label={student?.userName}
-                color="primary"
-            />}
-        subheader={
-            <Chip
-                style={{ color: "#fff", marginTop: "5px" }}
-                avatar={<Avatar>@</Avatar>}
-                label={student?.email}
-                color="secondary"
-            />}
+            <div style={{ diaplay: "flex", justifyContent: "cnter", alignItems: "center" }}>
+                <Chip
+                    style={{ color: "#fff", marginRight: "1rem"}}
+                    avatar={<Avatar>{<FaUser />}</Avatar>}
+                    label={student?.userName}
+                    color="primary"
+                />
+                <Chip
+                    style={{ color: "#fff", marginTop: "5px" }}
+                    avatar={<Avatar>@</Avatar>}
+                    label={student?.email}
+                    color="secondary"
+                />
+            </div>}
     />)
 DashBoardHeader.propTypes = {
     student: PropTypes.object,

@@ -1,9 +1,17 @@
 import moment from 'moment'
 import { theme } from '../../styles'
 
-export const getData = (dataToDisplay = [], currentSubjectData ) => {
+
+const getDateFormat = (dateToFormat) => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
+    const month = new Date(dateToFormat).getMonth() + 1
+    const date = new Date(dateToFormat).getDate()
+    return `${date}/${month}`
+}
+export const getData = (dataToDisplay = [], currentSubjectData) => {
     return {
-        labels: dataToDisplay.map((data) => moment(data?.timeTaken).startOf('minute').fromNow()),
+        // labels: dataToDisplay.map((data) => moment(data?.timeTaken).startOf('minute').fromNow()),
+        labels: dataToDisplay.map((data) => getDateFormat(data?.timeTaken)),
         datasets: [
             {
                 label: dataToDisplay?.length > 0 ? `Scores (%) in ${currentSubjectData.toUpperCase()}` : '',
