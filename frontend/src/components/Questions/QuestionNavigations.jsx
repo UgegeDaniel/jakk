@@ -17,8 +17,8 @@ const QuestionNavigations = ({ setQuestionIndex, questionIndex, size, questions,
                 </Container>
             </div>}
 
-            <Container>
-                <ul style={{ display: "grid", gridTemplateColumns: "repeat(10, 1fr)" }}>
+            <Container style={{marginLeft: "-2rem"}}>
+                <ul style={{ display: "grid", gridTemplateColumns: "repeat(10, 1fr)", margin: "1rem auto" }}>
                     {questions?.map((question, index) => (
                         <span className={classes.chipStyle}
                             key={index}

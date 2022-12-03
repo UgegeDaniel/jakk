@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b0eeb865.css",
+    "main.js": "/static/js/main.760b794d.js",
+    "static/media/studySvg.jpg": "/static/media/studySvg.883014f7c51b208da19c.jpg",
+    "static/media/examsSvg.jpg": "/static/media/examsSvg.82d97691fc1c634351c9.jpg",
+    "static/media/jamb.png": "/static/media/jamb.b62567c40167e7dcf1d9.png",
+    "static/media/class.svg": "/static/media/class.c82ef4f100d51b0d5723625251a9680d.svg",
+    "index.html": "/index.html",
+    "main.b0eeb865.css.map": "/static/css/main.b0eeb865.css.map",
+    "main.760b794d.js.map": "/static/js/main.760b794d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0eeb865.css",
+    "static/js/main.760b794d.js"
+  ]
+}

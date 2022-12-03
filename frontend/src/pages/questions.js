@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types';
-import { Container, Button, Paper } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Container, Paper } from '@material-ui/core'
 import { useStyles } from '../styles'
-// import {  Timer } from '../components/Question'
 import { LeftBtn, Skeleton } from '../components'
 import { ModalComponent, Results, SubmitAlert, QuestionCard } from '../components'
 
-const Questions = ({ questions, setQuestions }) => {
+const Questions = ({ questions, setQuestions, timer, onTime }) => {
     const classes = useStyles()
     const [submitted, setSubmitted] = useState(false);
     const [showResults, setShowResults] = useState(false);
     const [review, setReview] = useState(false);
-    // const { hour, minute, second } = timer
     const attempts = questions.length && questions.filter((item) => item.userChoice)
     const wrong = questions.length && attempts?.filter((item) => item.userChoice !== item.answer)
     const correct = questions.length && attempts?.filter((item) => item.userChoice === item.answer)
@@ -33,12 +30,18 @@ const Questions = ({ questions, setQuestions }) => {
                 :
                 (<Paper >
                     <Container >
-                        {/* <Timer timer={timer} setTimer={setTimer} /> */}
                         {submitted
                             ? <ModalComponent open={submitted} setOpen={setSubmitted}>
                                 <SubmitAlert setShowResults={setShowResults} />
                             </ModalComponent>
-                            : <QuestionCard questions={questions} review={review} setQuestions={setQuestions} handleOpen={() => setSubmitted(true)} />
+                            : <QuestionCard
+                                questions={questions}
+                                review={review}
+                                setQuestions={setQuestions}
+                                handleOpen={() => setSubmitted(true)}
+                                timer={timer}
+                                onTime={onTime}
+                            />
                         }
                         {showResults
                             && <ModalComponent open={showResults} setOpen={() => setShowResults(false)}>

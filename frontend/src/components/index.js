@@ -16,4 +16,5 @@ export { default as QuestionNavigations } from './Questions/QuestionNavigations'
 export { default as QuestionBody } from './Questions/QuestionBody';
 export { default as QuestionCard } from './Questions/QuestionCard';
 export { default as SubmitAlert } from './Questions/SubmitAlert';
+export { default as Timer } from './Questions/Timer';
 
