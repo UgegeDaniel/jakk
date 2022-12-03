@@ -36,8 +36,13 @@ This is a simple full stack application geared towards aiding students sitting f
 - The API employed for the authentication of users was developed by [UgegeDaniel](https://github.com/UgegeDaniel).
 - Official API documentation for the authentication api can be found [here](http://github.com/UgegeDaniel/jakk/backend)
 
-- This app demonstrates the use of basic concepts of the MERN Stack 
-  - Express Routes
+
+<!-- BUILT wITH -->
+
+## Built with
+
+- This app demonstrates the use of basic concepts of the MERN Stack like: 
+  - Express / Express Routes
   - Mongoose Models 
   - JSON Web Token
   - React Functional Components
@@ -49,21 +54,14 @@ This is a simple full stack application geared towards aiding students sitting f
   - React Prop Types 
   - Material UI Components 
   - React lazy loading
+  - React Testing Library
 
-- Other Libraries include 
-    -moment js
-    -react-icons
-    -react html parser
-    -react testing library
-
-<!-- BUILT wITH -->
-
-## Built with
-
-- HTML5
-- CSS3
-- JavaScript
-- React
+- Other Libraries include :
+    - moment js
+    - react-icons
+    - react html parser
+    - react testing library
+    - google login
 
 <!-- LIVE PREVIEW -->
 
@@ -160,7 +158,8 @@ const login = async (credentials) => {
 }
 ```
 
-<h4> Example response </h4>
+## Example response 
+
 <h5> Example Error response </h5>
 (without credentials)
 
@@ -184,7 +183,7 @@ const login = async (credentials) => {
 }
 ```
 
-<h5> Example Success response </h5>
+## Example Success response 
 
 (with valid credentials)
 
@@ -212,7 +211,7 @@ const updateHistory = async (email, newData) => {
 }
 ```
 
-<h5> Example Success response </h5>
+## Example Success response 
 
 (with valid credentials)
 
@@ -247,13 +246,16 @@ Once you have installed the required packages shown on the [Required Installatio
 Clone the Repository
 
 ```Shell
-your@pc:~$ git clone git@github.com:UgegeDaniel/jakk-frontend.git
+your@pc:~$ git clone git@github.com:UgegeDaniel/jakk.git
 ```
 
 Move to the downloaded folder
 
 ```Shell
-your@pc:~$ cd jakk-frontend
+your@pc:~$ cd jakk
+```
+```Shell
+your@pc:~$ cd frontend
 ```
 
 Install all packages
