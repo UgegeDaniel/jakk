@@ -12,32 +12,32 @@ const subjectsUrl = `${baseUrl}/metrics/list-subjects`
 const yearsUrl = `${baseUrl}/metrics/years-available-for`
 
 export const fetchSubjects = async () => {
-    try {
-        const response = await fetch(subjectsUrl)
-        const { data } = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
-    }
+    // try {
+    //     const response = await fetch(subjectsUrl)
+    //     const { data } = await response.json()
+    //     return data
+    // } catch (error) {
+    //     console.log(error)
+    // }
 }
 
 export const fetchYears = async (subject) => {
-    try {
-        const response = await fetch(`${yearsUrl}/${subject}`, options)
-        const { data } = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
-    }
+    // try {
+    //     const response = await fetch(`${yearsUrl}/${subject}`, options)
+    //     const { data } = await response.json()
+    //     return data
+    // } catch (error) {
+    //     console.log(error)
+    // }
 }
 
 export const fetchQuestions = async (subject, year, examType) => {
-    const url = `${questionsUrl}subject=${subject}&year=${year}&type=utme`
-    try {
-        const response = await fetch(url, options)
-        const {data}  = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
-    }
+    // const url = `${questionsUrl}subject=${subject}&year=${year}&type=utme`
+    // try {
+    //     const response = await fetch(url, options)
+    //     const {data}  = await response.json()
+    //     return data
+    // } catch (error) {
+    //     console.log(error)
+    // }
 }
