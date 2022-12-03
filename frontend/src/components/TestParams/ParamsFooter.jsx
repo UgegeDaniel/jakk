@@ -20,4 +20,4 @@ const ParamsFooter = ({ subject, examType, year }) => {
         </React.Fragment>
     )
 }
-export default ParamsFooter
+export default React.memo(ParamsFooter)
