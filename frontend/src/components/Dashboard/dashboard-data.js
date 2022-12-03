@@ -1,9 +1,9 @@
-import moment from 'moment'
+// import moment from 'moment'
 import { theme } from '../../styles'
 
 
 const getDateFormat = (dateToFormat) => {
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
+    // const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
     const month = new Date(dateToFormat).getMonth() + 1
     const date = new Date(dateToFormat).getDate()
     return `${date}/${month}`

@@ -25,6 +25,8 @@ This is a simple full stack application geared towards aiding students sitting f
 - Clicking the submit button serves a result page with results and an option to see correct answers.
 - Conversely, upon provision of invalid credentials during sign up / login, users are notified with error messages.
 
+
+
 <!-- concepts and apis employed -->
 
 ## Concepts and APIs Employed
@@ -32,7 +34,7 @@ This is a simple full stack application geared towards aiding students sitting f
 - The API employed for the questions was developed by [Seunope](https://github.com/Seunope).
 - Official API documentation for the movie db can be found [here](https://github.com/Seunope/aloc-endpoints)
 - The API employed for the authentication of users was developed by [UgegeDaniel](https://github.com/UgegeDaniel).
-- Official API documentation for the authentication api can be found [here]
+- Official API documentation for the authentication api can be found [here](http://github.com/UgegeDaniel/jakk/backend)
 
 - This app demonstrates the use of basic concepts of the MERN Stack 
   - Express Routes
@@ -41,10 +43,18 @@ This is a simple full stack application geared towards aiding students sitting f
   - React Functional Components
   - React Controlled Components
   - React Pure Components
-  - React useState / useEffect hooks
-  - React Router Dom (For Routing)
-  - React Prop Types for props checking 
+  - React useState / useEffect / useCallback / useMemo hooks
+  - React custom hooks
+  - React Router Dom
+  - React Prop Types 
   - Material UI Components 
+  - React lazy loading
+
+- Other Libraries include 
+    -moment js
+    -react-icons
+    -react html parser
+    -react testing library
 
 <!-- BUILT wITH -->
 
@@ -60,109 +70,14 @@ This is a simple full stack application geared towards aiding students sitting f
 ## Live Preview
 
 Find the live version [here](https://jakk-frontend.pages.dev/).
-Below is are some screenshots of what it looks like.
-<h3>Sign Up / Log in Page</h3>
-<img src="https://github.com/UgegeDaniel/jakk-frontend/blob/main/jakk-preview/jakk.png" alt=""/>
-<h3>Dashboard</h3>
-<img src="https://github.com/UgegeDaniel/jakk-frontend/blob/main/jakk-preview/Screenshot%20(7).png" alt=""/>
-<h3>Select your Test Parameters</h3>
-<img src="https://github.com/UgegeDaniel/jakk-frontend/blob/main/jakk-preview/Screenshot%20(9).png" alt=""/>
-<h3>Take Test</h3>
-<img src="https://github.com/UgegeDaniel/jakk-frontend/blob/main/jakk-preview/Screenshot%20(12).png" alt=""/>
-<h3>See Results</h3>
-<img src="https://github.com/UgegeDaniel/jakk-frontend/blob/main/jakk-preview/Screenshot%20(13).png" alt=""/>
-<h3>See Review</h3>
-<img src="https://github.com/UgegeDaniel/jakk-frontend/blob/main/jakk-preview/Screenshot%20(14).png" alt=""/>
-
-<!-- REQUIRED INSTALLATION -->
-
-## Required Installations
-
-- Npm
-
-<!-- INSTALLATION -->
-
-## Installation of This Repository
-
-Once you have installed the required packages shown on the [Required Installations](#required-installations), proceed with the following steps
-
-Clone the Repository
-
-```Shell
-your@pc:~$ git clone git@github.com:UgegeDaniel/jakk-frontend.git
-```
-
-Move to the downloaded folder
-
-```Shell
-your@pc:~$ cd jakk-frontend
-```
-
-Install all packages
-
-```Shell
-your@pc:~$ npm install --legacy-peer-deps
-```
-
-Open the app
-
-```Shell
-your@pc:~$ npm start
-```
-
-
-## jakk-backend
-
-<!-- jakk-backend features -->
-This is an authentication API with signup and login routes. Built with Express, Node and Mongoose (Mongo DB)
-This API gives allows for sign up, login and update history post requests.
-
-- This app demonstrates the use of basic concepts of the backend javasript technologies 
-  - Express Routes
-  - Mongoose Models 
-  - JSON Web Token
-  
-<!-- REQUIRED INSTALLATION -->
-
-## Required Installations
-
-- Npm
-
-<!-- INSTALLATION -->
-
-## Installation of This Repository
-
-Once you have installed the required packages shown on the [Required Installations](#required-installations), proceed with the following steps
-
-Clone the Repository
-
-```Shell
-your@pc:~$ git clone git@github.com:UgegeDaniel/jakk-backend.git
-```
-
-Move to the downloaded folder
-
-```Shell
-your@pc:~$ cd jakk-backend
-```
-
-Install all packages
-
-```Shell
-your@pc:~$ npm install --legacy-peer-deps
-```
-
-Open the app
-
-```Shell
-your@pc:~$ npm start
-```
+Below is gif with the app in use.
+<img src="" alt="sample"/>
 
 ## Sample API call 
 
  _Sign up at https://www.mongodb.com to get *Mongo DB connection URL* ._
 
-_ Visit https://github.com/UgegeDaniel/jakk-backend for sample API call _
+_ Visit https://github.com/UgegeDaniel/jakk/backend for sample API call _
 
 ## API call Examples
 ```js
@@ -315,6 +230,44 @@ const updateHistory = async (email, newData) => {
     ]
 }
 ```
+
+
+<!-- REQUIRED INSTALLATION -->
+
+## Required Installations
+
+- Npm
+
+<!-- INSTALLATION -->
+
+## Installation of This Repository
+
+Once you have installed the required packages shown on the [Required Installations](#required-installations), proceed with the following steps
+
+Clone the Repository
+
+```Shell
+your@pc:~$ git clone git@github.com:UgegeDaniel/jakk-frontend.git
+```
+
+Move to the downloaded folder
+
+```Shell
+your@pc:~$ cd jakk-frontend
+```
+
+Install all packages
+
+```Shell
+your@pc:~$ npm install --legacy-peer-deps
+```
+
+Open the app
+
+```Shell
+your@pc:~$ npm start
+```
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
