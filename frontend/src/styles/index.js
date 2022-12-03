@@ -45,7 +45,7 @@ export const useStyles = makeStyles((theme) => ({
     avatar1: { margin: theme.spacing(1), backgroundColor: theme.palette.secondary.main, },
     toolbar: theme.mixins.toolbar,
     //      >>>>        MODAL COMPONENT
-    modalStyle: { position: "relative", padding: "1rem", maxWidth: "80%", margin: "3rem" },
+    modalStyle: { position: "relative", maxWidth: "80%", margin: "3rem" },
     closeModalStyle: { fontSize: "1rem", position: "absolute", top: "0", right: "0", color: ` ${theme.palette.red.main}`, cursor: "pointer", borderRadius: "50%", border: `2px solid ${theme.palette.red.main}`, padding: "5px" },
 
 
@@ -94,7 +94,7 @@ export const evenAvatar = {
     backgroundColor: '#2A928F',
 }
 export const bouncingLogo = { width: "100%", height: "100%", borderRadius: "50%", marginLeft: "100px" }
-export const modalContainerStyle = { maxWidth: "700px", margin: "5rem auto", display: "flex", alignItems: "center", justifyContent: "center" }
+export const modalContainerStyle = { maxWidth: "80%", margin: "5rem auto", display: "flex", alignItems: "center", justifyContent: "center" }
 export let optionAvatarStyle ={};
 export const handleChoiceStyle = (item, review, answer, userChoice) => {
     let backgroundColor;

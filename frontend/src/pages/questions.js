@@ -13,7 +13,7 @@ const Questions = ({ questions, setQuestions, testStart, setTestStart }) => {
     const attempts = questions.length && questions.filter((item) => item.userChoice)
     const wrong = questions.length && attempts?.filter((item) => item.userChoice !== item.answer)
     const notAttempted = questions.length && questions.filter((item) => !item.userChoice)
-    const toReview = [...wrong, ...notAttempted]
+    const toReview = questions.length && [...wrong, ...notAttempted]
     const correct = questions.length && attempts?.filter((item) => item.userChoice === item.answer)
     const showReview = () => {
         setReview(true);

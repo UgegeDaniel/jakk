@@ -1,4 +1,4 @@
-import React, { useState, memo, useEffect, Suspense } from 'react';
+import React, { useState, memo, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Card } from '@material-ui/core'
 import { useStyles } from '../styles'
@@ -14,9 +14,6 @@ const Dashboard = memo(({ student, testParams, setTestParams, years, subjects, s
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const paramProps = { testParams, setTestParams, years, subjects }
-    useEffect(() => {
-        console.log(DashBoardBody)
-    }, [])
     return (
         <div className={classes.mc}>
             <Paper className={classes.paperStyle}>
