@@ -4,16 +4,20 @@ import { LeftBtn, QuestionBody, Options, QuestionNavigations, Timer } from '..'
 import { useStyles } from '../../styles'
 import { useTimer } from '../../hooks'
 
-const QuestionCard = ({ handleOpen, questions, setQuestions, review }) => {
+const QuestionCard = ({ handleOpen, questions, setQuestions, review, testStart, setTestStart }) => {
     const [questionIndex, setQuestionIndex] = useState(0)
     const currentQuestion = questions[questionIndex]
     const classes = useStyles()
-    const { timer } = useTimer()
+    const { timer } = useTimer(testStart)
 
     const handleChoice = (e) => {
         setQuestions((prevState) => prevState.map((item) => {
             return (item.number === questionIndex + 1) ? { ...item, userChoice: e.target.id } : item
         }))
+    }
+    const handleSubmit = () => {
+        handleOpen(true)
+        setTestStart(false)
     }
     return (
         <Card elevation={3} style={{ padding: "1rem" }}>
@@ -31,7 +35,7 @@ const QuestionCard = ({ handleOpen, questions, setQuestions, review }) => {
                         setQuestionIndex={setQuestionIndex} questionIndex={questionIndex} review={review} />
                     {review
                         ? <LeftBtn btnTxt="Go Back to Dashboard" link="/" />
-                        : <LeftBtn handleClick={() => handleOpen(true)} btnTxt="Finish and Submit" />
+                        : <LeftBtn handleClick={handleSubmit} btnTxt="Finish and Submit" />
                     }
                 </React.Fragment>
             }

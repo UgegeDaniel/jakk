@@ -5,7 +5,7 @@ import { useStyles } from '../styles'
 import { LeftBtn, Skeleton } from '../components'
 import { ModalComponent, Results, SubmitAlert, QuestionCard } from '../components'
 
-const Questions = ({ questions, setQuestions }) => {
+const Questions = ({ questions, setQuestions, testStart, setTestStart }) => {
     const classes = useStyles()
     const [submitted, setSubmitted] = useState(false);
     const [showResults, setShowResults] = useState(false);
@@ -41,6 +41,8 @@ const Questions = ({ questions, setQuestions }) => {
                                 review={review}
                                 setQuestions={setQuestions}
                                 handleOpen={() => setSubmitted(true)}
+                                testStart={testStart}
+                                setTestStart={setTestStart}
                             />
                         }
                         {showResults

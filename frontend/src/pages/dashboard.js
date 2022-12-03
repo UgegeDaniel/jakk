@@ -7,7 +7,7 @@ import {
     LeftBtn, ModalComponent, TestParams
 } from '../components'
 
-const Dashboard = memo(({ student, testParams, setTestParams, years, subjects }) => {
+const Dashboard = memo(({ student, testParams, setTestParams, years, subjects, setTestStart }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -22,7 +22,7 @@ const Dashboard = memo(({ student, testParams, setTestParams, years, subjects })
                 </Card>
             </Paper>
             <ModalComponent open={open} setOpen={setOpen} >
-                <TestParams {...paramProps} />
+                <TestParams {...paramProps} setTestStart={setTestStart}/>
             </ModalComponent>
         </div>
     )

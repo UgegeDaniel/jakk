@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 
-const useTimer = () => {
+const useTimer = (testStart) => {
     const oldTimer = JSON.parse(localStorage.getItem('timer'))
-    const [timer, setTimer] = useState(oldTimer || { hour: 0, minute: 0, second: 0 })
+    const [timer, setTimer] = useState((oldTimer && !testStart) ? oldTimer : { hour: 0, minute: 0, second: 0 })
 
     useEffect(() => {
         const { hour, minute, second } = timer
-        if (hour === 0 && minute === 0 && second === 0) {
+        if (testStart && hour === 0 && minute === 0 && second === 0) {
             setTimer({ ...timer, hour: 2 })
         }
         const cleanUp = setInterval(() => {
-            if (hour === 0 && minute === 0 && second === 0) {
+            if (!testStart || (hour === 0 && minute === 0 && second === 0)) {
+                localStorage.removeItem('timer')
                 return
             }
             else if (minute === 0 && hour > 0) {
@@ -26,9 +27,9 @@ const useTimer = () => {
                 localStorage.setItem('timer', JSON.stringify(timer))
             }
         }, 1000)
-        // console.log(timer)
+        console.log(timer)
         return () => clearInterval(cleanUp)
-    }, [setTimer, timer])
+    }, [setTimer, timer, testStart])
     return { timer, setTimer }
 }
 
