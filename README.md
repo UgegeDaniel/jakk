@@ -2,7 +2,7 @@
 *jakk-backend deployed on heroku*
 # JAKK
 
-This is a simple full stack application geared towards aiding students sitting for various O - Level Examinations with a progressive and accessible means of practicising. Students are required to sign up for a free account, take tests in over 17 subjects as their records over time are being displayed on a chart for a visual representation of their progress. Its a simple app to demostrate the basic features of some common MERN stack technologies.
+This is a simple open-source full stack application geared towards aiding students sitting for various O - Level Examinations with a progressive and accessible means of practicising. Students are required to sign up for a free account, take tests in over 17 subjects as their records over time are being displayed on a chart for a visual representation of their progress. Its a simple app to demostrate the basic features of some common MERN stack technologies.
 ## Table of Contents
 
 - [JAKK Features](#movie-features)
