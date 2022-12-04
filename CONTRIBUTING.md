@@ -10,14 +10,10 @@
 
 - Add the Issue you worked on in your Pull Request 
 
-- Don't work on the main branch, create your own branch by following the instructions [here](https://github.com/UgegeDaniel/jakk/CONTRIBUTING.md#-how-to-make-a-pull-request)
+- Don't work on the main branch, create your own branch by following the template
 
 - Don't commit the lock files eg package.json
 
-- Fill out issue and pull request(PR) templates properly, if you don't know how, check out previous issues/PR to know how they are filled or this video👇🏾
-
-#### 👌🏾 How to fill a pull request template
-[pull request template.webm](https://user-images.githubusercontent.com/78784850/195570788-05a6fe61-a9a3-4abe-ae17-936ffd6ea171.webm)
 
 > # Note: Breaking any of the rules above👆🏽 will get your PR rejected
 
@@ -26,7 +22,7 @@
 ### Contribute in project
 
 - [Node.js](https://nodejs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [JavaScript](https://www.typescriptlang.org/)
 
 ---
 
