@@ -21,17 +21,11 @@ const App = () => {
       {notification.show &&
         <Notification notification={notification} setNotification={setNotification} />}
       <Routes>
-        <Route exact path="/" element={!student
-          ? <Home setStudent={setStudent} setNotification={setNotification} />
-          : <Navigate to='/dashboard' />} />
-        <Route exact path="/dashboard" element={student
-          ? <Dashboard student={student} {...paramProps} setTestStart={setTestStart}/>
-          : <Navigate to='/' />
+        <Route exact path="/" element={<Home setStudent={setStudent} setNotification={setNotification} />}/>
+        <Route exact path="/dashboard" element={<Dashboard student={student} {...paramProps} setTestStart={setTestStart}/>
         } />
         <Route exact path="/questions"
-          element={student
-            ? <Questions questions={questions} setQuestions={setQuestions} testStart={testStart} setTestStart={setTestStart}/>
-            : <Navigate to='/' />
+          element={<Questions questions={questions} setQuestions={setQuestions} testStart={testStart} setTestStart={setTestStart}/>
           } />
       </Routes>
     </div>

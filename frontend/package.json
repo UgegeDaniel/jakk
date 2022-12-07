@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm test --coverage --watchAll --collectCoverageFrom='src/components/**/*.{js,jsx}' --collectCoverageFrom='!src/"
+    "coverage": "yarn test --coverage --watchAll  --collectCoverageFrom='src/components/**/*.{js,jsx}'"
   },
   "eslintConfig": {
     "extends": [

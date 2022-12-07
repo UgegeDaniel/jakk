@@ -46,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     //      >>>>        MODAL COMPONENT
     modalStyle: { position: "relative", maxWidth: "80%", margin: "3rem" },
-    closeModalStyle: { fontSize: "1rem", position: "absolute", top: "0", right: "0", color: ` ${theme.palette.red.main}`, cursor: "pointer", borderRadius: "50%", border: `2px solid ${theme.palette.red.main}`, padding: "5px" },
+    closeModalStyle: { fontSize: "1rem", position: "absolute", top: "1rem", right: "1rem", color: ` ${theme.palette.red.main}`, cursor: "pointer", borderRadius: "50%", border: `2px solid ${theme.palette.red.main}`, padding: "5px" },
 
 
     //      >>>>        HERO

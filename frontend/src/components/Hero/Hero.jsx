@@ -10,7 +10,11 @@ const Hero = ({ setOpen }) => {
         <div style={{ margin: "5rem auto", maxWidth: "800px" }}>
             <Typography color="secondary" align="center">{welcomeText}</Typography>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <LeftBtn btnTxt="Continue With Google" handleClick={handleOpen} Icon={Icon} />
+                <LeftBtn 
+                btnTxt="Continue With Google" 
+                handleClick={handleOpen} 
+                Icon={Icon} 
+                />
             </div>
         </div>
     )

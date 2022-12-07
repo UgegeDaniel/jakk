@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-role */
 import { useState, memo } from 'react'
 import PropTypes from 'prop-types';
 import { Button, Typography, Paper, } from '@material-ui/core'
@@ -27,7 +28,7 @@ const Form = memo(({ setStudent, setNotification }) => {
         <form autoComplete="off" noValidate gutterbottom="true" display="flex" align="center" >
             <Paper>
                 <Typography variant="h6" component="h2" gutterBottom color="secondary">
-                    <i>{isLogin ? 'Log In' : 'Sign Up'}</i>
+                    <i role="title">{isLogin ? 'Log In' : 'Sign Up'}</i>
                 </Typography>
                 <Inputs handleChange={handleChange} credentials={credentials} isLogin={isLogin} />
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "auto 1rem" }}>
@@ -46,7 +47,7 @@ const Form = memo(({ setStudent, setNotification }) => {
 })
 
 Form.propTypes = {
-    setStudent: PropTypes.func.isRequired,
-    setNotification: PropTypes.func.isRequired,
+    student: PropTypes.object,
+    setNotification: PropTypes.func,
 };
 export default Form

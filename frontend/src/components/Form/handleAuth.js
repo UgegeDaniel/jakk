@@ -8,6 +8,7 @@ const handleAuth = async (e, isLogin, credentials, setStudent, setNotification, 
         //     setStudent(data)
         //     navigate("/dashboard")
               setNotification({ show: true, type: "success", msg: 'Congratualations Login Successfull !!!' })
+              navigate('/dashboard')
         // } else {
             // setNotification({ show: true, msg: response.error, type: "danger" })
         // }
@@ -18,6 +19,7 @@ const handleAuth = async (e, isLogin, credentials, setStudent, setNotification, 
         //     setStudent(data)
         //     navigate("/dashboard")
            setNotification({ show: true, type: "success", msg: 'Congratualations Sign up Successfull !!!' })
+           navigate('/dashboard')
         // } else {
             // setNotification({ show: true, msg: response.error, type: "danger" })
         // }
