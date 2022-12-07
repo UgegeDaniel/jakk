@@ -1,22 +1,36 @@
-import { Typography } from '@material-ui/core'
+import { Typography, Grid } from '@material-ui/core'
 import { Icon } from '../../assests'
 import { welcomeText } from '../../utils'
 import { LeftBtn } from '..'
 import PropTypes from 'prop-types';
+import { smilingGirl } from '../../assests'
+import { useStyles } from '../../styles';
 
 const Hero = ({ setOpen }) => {
     const handleOpen = () => setOpen(true);
+    const classes = useStyles()
     return (
-        <div style={{ margin: "5rem auto", maxWidth: "800px" }}>
-            <Typography color="secondary" align="center">{welcomeText}</Typography>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <LeftBtn 
-                btnTxt="Continue With Google" 
-                handleClick={handleOpen} 
-                Icon={Icon} 
-                />
-            </div>
-        </div>
+        <Grid container style={{ position: "relative" }}>
+            <Grid sm={8} md={7} lg={6} item style={{ marginTop: "10rem" }}>
+                <div style={{ margin: "auto", maxWidth: "500px" }}>
+                    <Typography color="secondary" align="center">{welcomeText}</Typography>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <LeftBtn
+                            btnTxt="Continue With Google"
+                            handleClick={handleOpen}
+                            Icon={Icon}
+                            secondary
+                        />
+                    </div>
+                </div>
+            </Grid>
+            <Grid item sm={4} md={5} lg={6} >
+                <img src={smilingGirl} alt="smiling-girl"
+                    width="100%"
+                    height="100%"
+                    className={`${classes.examBodies}`} />
+            </Grid>
+        </Grid>
     )
 }
 

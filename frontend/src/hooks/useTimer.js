@@ -7,7 +7,7 @@ const useTimer = (testStart) => {
     useEffect(() => {
         const { hour, minute, second } = timer
         if (testStart && hour === 0 && minute === 0 && second === 0) {
-            setTimer({ ...timer, hour: 2 })
+            setTimer((prevTimer) => ({ ...prevTimer, hour: 2 }))
         }
         const cleanUp = setInterval(() => {
             if (!testStart || (hour === 0 && minute === 0 && second === 0)) {
@@ -18,16 +18,15 @@ const useTimer = (testStart) => {
                 setTimer({ hour: hour - 1, minute: 59, second: 59 })
             }
             else if (second === 0 && minute > 0) {
-                setTimer({ ...timer, minute: minute - 1, second: 59 })
+                setTimer((prevTimer)=> ({ ...prevTimer, minute: minute - 1, second: 59 }))
             }
             else if (second > 0 && second > 0) {
-                setTimer({ ...timer, second: second - 1 })
+                setTimer((prevTimer)=> ({ ...prevTimer, second: second - 1 }))
             }
             if (second % 5 <= 0) {
                 localStorage.setItem('timer', JSON.stringify(timer))
             }
         }, 1000)
-        console.log(timer)
         return () => clearInterval(cleanUp)
     }, [setTimer, timer, testStart])
     return { timer, setTimer }

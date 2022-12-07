@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AppHeader, Notification } from './components'
 import { Home, Dashboard, Questions } from './pages'
 import { useQuestions, useTestParams, useStudent } from './hooks'
-import { useEffect } from 'react';
 
 const App = () => {
   const [notification, setNotification] = useState({ show: false, msg: '', type: 'danger' })
@@ -12,6 +11,9 @@ const App = () => {
   const { questions, setQuestions } = useQuestions(testParams)
   const [testStart, setTestStart] = useState(false)
   const paramProps = { testParams, setTestParams, years, subjects }
+  // useEffect(() => {
+  //   setQuestions([])
+  // }, [setQuestions])
   useEffect(() => {
     questions.length && setTestStart(true)
   }, [questions.length])
@@ -21,11 +23,11 @@ const App = () => {
       {notification.show &&
         <Notification notification={notification} setNotification={setNotification} />}
       <Routes>
-        <Route exact path="/" element={<Home setStudent={setStudent} setNotification={setNotification} />}/>
-        <Route exact path="/dashboard" element={<Dashboard student={student} {...paramProps} setTestStart={setTestStart}/>
+        <Route exact path="/" element={<Home setStudent={setStudent} setNotification={setNotification} />} />
+        <Route exact path="/dashboard" element={<Dashboard student={student} {...paramProps} setTestStart={setTestStart} />
         } />
         <Route exact path="/questions"
-          element={<Questions questions={questions} setQuestions={setQuestions} testStart={testStart} setTestStart={setTestStart}/>
+          element={<Questions questions={questions} setQuestions={setQuestions} testStart={testStart} setTestStart={setTestStart} />
           } />
       </Routes>
     </div>
