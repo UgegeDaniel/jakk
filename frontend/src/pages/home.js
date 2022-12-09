@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import PropTypes from 'prop-types';
 import { Box } from '@material-ui/core'
-import { useState } from 'react'
 import { ModalComponent, Form, Hero } from '../components'
 
 const Home = ({ setNotification, setStudent }) => {
