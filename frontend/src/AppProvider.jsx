@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Container, ThemeProvider, } from '@material-ui/core'
 import { theme } from './styles'
 
-const AppWrapper =  ({children}) => (
+const AppProvider =  ({children}) => (
     < React.StrictMode >
     < Router >
         <ThemeProvider theme={theme}>
@@ -14,4 +14,4 @@ const AppWrapper =  ({children}) => (
     </Router >
   </React.StrictMode >
 )
-export default AppWrapper;
+export default AppProvider;

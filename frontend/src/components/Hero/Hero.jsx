@@ -13,7 +13,7 @@ const Hero = ({ setOpen }) => {
         <Grid container style={{ position: "relative" }}>
             <Grid sm={8} md={7} lg={6} item style={{ marginTop: "10rem" }}>
                 <div style={{ margin: "auto", maxWidth: "500px" }}>
-                    <Typography color="secondary" align="center">{welcomeText}</Typography>
+                    <Typography color="secondary" align="center" component="p">{welcomeText}</Typography>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <LeftBtn
                             btnTxt="Continue With Google"
