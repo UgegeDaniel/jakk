@@ -1,13 +1,10 @@
-const functions = require("firebase-functions");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-const PORT = process.env.PORT;
-const CONNECTION_STRING = process.env.MONGO_DB_CONNECTION_URI;
-
-const studentRoutes = require("./routes/studentRoutes");
+const PORT = process.env.PORT || 5000;
+const studentRoutes = require("./routes/routes");
 
 const app = express();
 app.use(cors());
@@ -20,13 +17,17 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use("/student", studentRoutes);
 app.get("/", (req, res) => {
+  console.log({ req });
   res.send("Hello World!");
 });
 
+mongoose.set("strictQuery", false);
+
 mongoose.connect(
-    CONNECTION_STRING,
+    process.env.CONNECTION_STRING,
     {
-      useUnifiedTopology: true, useNewUrlParser: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     }).then(() => {
   app.listen(PORT, () => {
     console.log(

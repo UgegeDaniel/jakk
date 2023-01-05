@@ -12,11 +12,11 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
-    userName:{
+    userName: {
         type: String,
         required: true
     },
-history: []
+    history: []
 }
 )
 
