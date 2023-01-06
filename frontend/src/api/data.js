@@ -2,7 +2,7 @@ const options = {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'AccessToken': `QB-d58fe1605f0318db11c2`,
+        'AccessToken': `QB-36d1f56538f7a49f6742`,
     },
     method: "GET",
 };
@@ -11,33 +11,24 @@ const questionsUrl = `${baseUrl}/v2/m?`
 const subjectsUrl = `${baseUrl}/metrics/list-subjects`
 const yearsUrl = `${baseUrl}/metrics/years-available-for`
 
-export const fetchSubjects = async () => {
+const fetchData = async (url) => {
     try {
-        const response = await fetch(subjectsUrl)
+        const response = await fetch(url, options)
         const { data } = await response.json()
         return data
     } catch (error) {
         console.log(error)
     }
+}
+
+export const fetchSubjects = async () => {
+    await fetchData(subjectsUrl)
 }
 
 export const fetchYears = async (subject) => {
-    try {
-        const response = await fetch(`${yearsUrl}/${subject}`, options)
-        const { data } = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
-    }
+    await fetchData (`${yearsUrl}/${subject}`)
 }
 
 export const fetchQuestions = async (subject, year, examType) => {
-    const url = `${questionsUrl}subject=${subject}&year=${year}&type=utme`
-    try {
-        const response = await fetch(url, options)
-        const {data}  = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
-    }
+    await fetchData`${questionsUrl}subject=${subject}&year=${year}&type=utme`
 }

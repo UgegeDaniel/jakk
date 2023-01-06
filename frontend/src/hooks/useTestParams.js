@@ -10,12 +10,11 @@ const useTestParams = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetchSubjects()
-            const subjects = data && Object.values(data)
-            if (data && subjects.length === 0) {
+            if (data) {
+                const subjects = data && Object.values(data)
                 setSubjects(subjects)
-            } else {
-                return
             }
+            return
         }
         fetchData()
     }, [subjects])
@@ -25,13 +24,12 @@ const useTestParams = () => {
             const data = await fetchYears(subject)
             if (subject && data.length > 0) {
                 setYears(data.map((item) => item.examyear))
-            } else {
-                return
             }
+            return
         }
         subject && fetchData()
     }, [subject, year])
-    return {testParams, setTestParams, subjects, years}
+    return { testParams, setTestParams, subjects, years }
 }
 
 export default useTestParams
