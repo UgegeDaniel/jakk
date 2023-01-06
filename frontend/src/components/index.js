@@ -1,5 +1,4 @@
 export { default as AppHeader } from './AppHeader/AppHeader';
-export { default as BouncingLoader } from './Loaders/BouncingLoader';
 export { default as DashBoardBody } from './DashBoard/DashBoardBody';
 export { default as DashBoardHeader } from './DashBoard/DashBoardHeader';
 export { default as Form } from './Form/Form';

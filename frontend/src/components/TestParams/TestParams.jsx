@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import ParamsBody from './ParamsBody'
 import ParamsFooter from './ParamsFooter'
-const TestParams = ({testParams, setTestParams, years, subjects, setTestStart}) => {
+const TestParams = ({testParams, setTestParams, years, subjects, setTestStart, setNotification}) => {
     const handleChange = (e) => {
         setTestParams({ ...testParams, [e.target.name]: e.target.value })
         setTestStart(true)
@@ -15,7 +15,7 @@ const TestParams = ({testParams, setTestParams, years, subjects, setTestStart}) 
             </Typography>
             <ParamsBody testParams={testParams} years={years} subjects={subjects} handleChange={handleChange} />
             <div>
-                <ParamsFooter {...testParams}/>
+                <ParamsFooter {...testParams} setNotification={setNotification}/>
             </div>
         </React.Fragment>
     )

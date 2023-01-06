@@ -10,18 +10,9 @@ const App = () => {
   const { testParams, setTestParams, subjects, years } = useTestParams()
   const { questions, setQuestions } = useQuestions(testParams)
   const [testStart, setTestStart] = useState(false)
-  // useEffect(() => {
-  //   setQuestions([])
-  // }, [setQuestions])
   useEffect(() => {
     questions.length && setTestStart(true)
   }, [questions.length])
-
-  useEffect(() => {
-    if (student) {
-      console.log('sd', student)
-    }
-  }, [student])
 
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", minHeight: "100vh" }}>
@@ -48,20 +39,22 @@ const App = () => {
                 setTestParams={setTestParams}
                 years={years}
                 subjects={subjects}
+                setTestStart={setTestStart}
+                setNotification={setNotification}
               />
               : <Navigate to="/" />
           } />
         <Route
           exact path="/questions"
           element={
-            student ?
+            questions ?
               <Questions
                 questions={questions}
                 setQuestions={setQuestions}
                 testStart={testStart}
                 setTestStart={setTestStart}
               />
-              : <Navigate to="/" />
+              : <Navigate to="/dashboard" />
           } />
       </Routes>
     </div>

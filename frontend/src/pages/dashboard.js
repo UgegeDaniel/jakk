@@ -9,7 +9,7 @@ import {
 
 const DashBoardBody = React.lazy(() => import('../components/DashBoard/DashBoardBody'))
 
-const Dashboard = memo(({ student, testParams, setTestParams, years, subjects, setTestStart }) => {
+const Dashboard = memo(({ student, testParams, setTestParams, years, subjects, setTestStart, setNotification }) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -26,7 +26,11 @@ const Dashboard = memo(({ student, testParams, setTestParams, years, subjects, s
                 </Card>
             </Paper>
             <ModalComponent open={open} setOpen={setOpen} >
-                <TestParams {...paramProps} setTestStart={setTestStart} />
+                <TestParams
+                    {...paramProps}
+                    setTestStart={setTestStart}
+                    setNotification={setNotification}
+                />
             </ModalComponent>
         </div>
     )

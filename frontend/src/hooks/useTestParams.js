@@ -12,12 +12,13 @@ const useTestParams = () => {
             const data = await fetchSubjects()
             if (data) {
                 const subjects = data && Object.values(data)
+                console.log(subjects)
                 setSubjects(subjects)
             }
             return
         }
         fetchData()
-    }, [subjects])
+    }, [])
 
     useEffect(() => {
         const fetchData = async () => {

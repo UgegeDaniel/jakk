@@ -40,7 +40,7 @@ const loginStudent = async (req, res) => {
         return res.status(200).json({ id:student._id, email, password, userName, token, history: student.history })
     }
     catch (error) {
-        return res.status(400).json({ error: "Invalid email or password" })
+        return res.status(400).json({ error })
     }
 }
 

@@ -7,7 +7,7 @@ const DashBoardHeader = ({ student }) => (
     <CardHeader
         action={
             <IconButton>
-                <Avatar style={{ backgroundColor: deepPurple[500] }}>{student?.userName.charAt(0)}</Avatar>
+                <Avatar style={{ backgroundColor: deepPurple[500] }}>{student.userName.charAt(0)}</Avatar>
             </IconButton>
         }
         title={

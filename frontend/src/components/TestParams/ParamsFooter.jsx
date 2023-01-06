@@ -1,9 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Btn, ItalisizedTypography } from '../'
 import { useStyles } from '../../styles'
 
-const ParamsFooter = ({ subject, examType, year }) => {
+const ParamsFooter = ({ subject, examType, year, setNotification }) => {
     const classes = useStyles();
+    const navigate = useNavigate()
+    const handleClick= () =>{
+        if(subject && year){
+            navigate('/questions')
+            return
+        }
+        if(!subject || !year){
+            setNotification({show: true, msg: "Please pick a subject and year", type: "danger"})
+            return
+        }
+    }
     return (
         <React.Fragment>
             <div style={{ marginTop: "0.5rem", display: "flex" }}>
@@ -16,7 +28,7 @@ const ParamsFooter = ({ subject, examType, year }) => {
             <ItalisizedTypography>Allotted Time :
                 <span className={classes.chipStyle}> 2 hours</span>
             </ItalisizedTypography>
-            <Btn btnTxt="Take Test" link="/questions" />
+            <Btn btnTxt="Take Test" handleClick={handleClick}/>
         </React.Fragment>
     )
 }

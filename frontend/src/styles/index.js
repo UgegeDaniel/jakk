@@ -47,8 +47,8 @@ export const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
 
     //      >>>>        MODAL COMPONENT
-    modalStyle: { position: "relative", maxWidth: "80%", margin: "3rem" },
-    closeModalStyle: { fontSize: "1rem", position: "absolute", top: "-1rem", right: "-1rem", color: ` ${theme.palette.red.main}`, cursor: "pointer", borderRadius: "50%", border: `2px solid ${theme.palette.red.main}`, padding: "5px" },
+    modalStyle: { position: "relative", maxWidth: "90%", margin: "3rem" },
+    closeModalStyle: { fontSize: "1rem", position: "absolute", top: "1rem", right: "1rem", color: ` ${theme.palette.red.main}`, cursor: "pointer", borderRadius: "50%", border: `2px solid ${theme.palette.red.main}`, padding: "5px" },
 
     //      >>>>        HERO
     middleImg: { marginLeft: 20, zIndex: 3 },
@@ -94,7 +94,6 @@ export const oddAvatar = {
 export const evenAvatar = {
     backgroundColor: '#2A928F',
 }
-export const bouncingLogo = { width: "100%", height: "100%", borderRadius: "50%", marginLeft: "100px" }
 export const modalContainerStyle = { maxWidth: "90%", margin: "5rem auto", display: "flex", alignItems: "center", justifyContent: "center" }
 export let optionAvatarStyle ={};
 export const handleChoiceStyle = (item, review, answer, userChoice) => {
