@@ -7,12 +7,12 @@ import { useStyles } from '../../styles'
 const Inputs = ({ isLogin, credentials, handleChange }) => {
     const [showPassword, setShowPassword] = useState(false)
     const classes = useStyles()
-    const data = inputProps(credentials, isLogin, setShowPassword, showPassword)
-    const exampleStyle = { fontSize: "0.75rem", margin: "auto", display: "block", width: "100%", marginLeft: "auto" }
+    const inputFields = inputProps(credentials, isLogin, setShowPassword, showPassword)
+    const exampleInputStyle = { fontSize: "0.75rem", margin: "auto", display: "block", width: "100%", marginLeft: "auto" }
 
     return (
         <Container>
-        {data.map((feild, index) => {
+        {inputFields.map((feild, index) => {
             const { show, label, name, value, type, props, example } = feild
             return (
                 show &&
@@ -21,7 +21,7 @@ const Inputs = ({ isLogin, credentials, handleChange }) => {
                         InputProps={props} type={type} value={value} name={name}
                         onChange={handleChange} color="secondary" />
                     <Typography component="i" variant="caption" align="right" fontSize="12px" gutterBottom color="secondary"
-                        style={exampleStyle}>
+                        style={exampleInputStyle}>
                         {example}
                     </Typography>
                 </div>

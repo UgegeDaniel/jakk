@@ -5,7 +5,7 @@ export { default as DashBoardHeader } from './DashBoard/DashBoardHeader';
 export { default as Form } from './Form/Form';
 export { default as Hero } from './Hero/Hero';
 export { default as ItalisizedTypography } from './ItalisizedTypography/ItalisizedTypography';
-export { default as LeftBtn } from './Buttons/LeftBtn';
+export { default as Btn } from './Buttons/Btn';
 export { default as ModalComponent } from './Modal/ModalComponent';
 export { default as Notification } from './Notification/Notification';
 export { default as Skeleton } from './Loaders/Skeleton';

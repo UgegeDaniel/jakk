@@ -4,7 +4,7 @@ import { Paper, Card } from '@material-ui/core'
 import { useStyles } from '../styles'
 import {
     DashBoardHeader,
-    LeftBtn, ModalComponent, TestParams
+    Btn, ModalComponent, TestParams
 } from '../components'
 
 const DashBoardBody = React.lazy(() => import('../components/DashBoard/DashBoardBody'))
@@ -22,7 +22,7 @@ const Dashboard = memo(({ student, testParams, setTestParams, years, subjects, s
                     <Suspense fallback={<i>Fetching Dashboard</i>}>
                         <DashBoardBody student={student} />
                     </Suspense>
-                    <LeftBtn btnTxt="Take A Test" handleClick={handleOpen} />
+                    <Btn btnTxt="Take A Test" handleClick={handleOpen} />
                 </Card>
             </Paper>
             <ModalComponent open={open} setOpen={setOpen} >

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CardContent, Card } from '@material-ui/core'
-import { LeftBtn, QuestionBody, Options, QuestionNavigations, Timer } from '..'
+import { Btn, QuestionBody, Options, QuestionNavigations, Timer } from '..'
 import { useStyles } from '../../styles'
 import { useTimer } from '../../hooks'
 
@@ -34,8 +34,8 @@ const QuestionCard = ({ handleOpen, questions, setQuestions, review, testStart, 
                     <QuestionNavigations questions={questions} size={questions.length}
                         setQuestionIndex={setQuestionIndex} questionIndex={questionIndex} review={review} />
                     {review
-                        ? <LeftBtn btnTxt="Go Back to Dashboard" link="/" />
-                        : <LeftBtn handleClick={handleSubmit} btnTxt="Finish and Submit" />
+                        ? <Btn btnTxt="Go Back to Dashboard" link="/" />
+                        : <Btn handleClick={handleSubmit} btnTxt="Finish and Submit" />
                     }
                 </React.Fragment>
             }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import { Container, Paper } from '@material-ui/core'
 import { useStyles } from '../styles'
-import { LeftBtn, Skeleton } from '../components'
+import { Btn, Skeleton } from '../components'
 import { ModalComponent, Results, SubmitAlert, QuestionCard } from '../components'
 
 const Questions = ({ questions, setQuestions, testStart, setTestStart }) => {
@@ -27,7 +27,7 @@ const Questions = ({ questions, setQuestions, testStart, setTestStart }) => {
             {questions.length === 0 ?
                 <div>
                     <Skeleton />
-                    <LeftBtn btnTxt="Go back to Dashboard" link="/dashboard" />
+                    <Btn btnTxt="Go back to Dashboard" link="/dashboard" />
                 </div>
                 :
                 (<Paper >

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ItalisizedTypography, LeftBtn } from '..';
+import { ItalisizedTypography, Btn } from '..';
 import { useStyles } from '../../styles'
 
 const Results = ({attempts, correct, wrong, showReview, toReview}) => {
@@ -27,7 +27,7 @@ const Results = ({attempts, correct, wrong, showReview, toReview}) => {
                         <span key={index} className={classes.chipStyle} style={{ textAlign: "center", fontSize: "12px", fontStyle: "italic" }}>{item.number}</span>
                     ))}
                 </ul>
-                <LeftBtn btnTxt="See correct answers" handleClick={showReview} />
+                <Btn btnTxt="See correct answers" handleClick={showReview} />
             </div>
         }
     </React.Fragment>

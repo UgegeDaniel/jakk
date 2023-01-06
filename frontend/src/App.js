@@ -10,24 +10,58 @@ const App = () => {
   const { testParams, setTestParams, subjects, years } = useTestParams()
   const { questions, setQuestions } = useQuestions(testParams)
   const [testStart, setTestStart] = useState(false)
-  const paramProps = { testParams, setTestParams, years, subjects }
   // useEffect(() => {
   //   setQuestions([])
   // }, [setQuestions])
   useEffect(() => {
     questions.length && setTestStart(true)
   }, [questions.length])
+
+  useEffect(() => {
+    if (student) {
+      console.log('sd', student)
+    }
+  }, [student])
+
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", minHeight: "100vh" }}>
       <AppHeader setStudent={setStudent} student={student} />
       {notification.show &&
         <Notification notification={notification} setNotification={setNotification} />}
       <Routes>
-        <Route exact path="/" element={<Home setStudent={setStudent} setNotification={setNotification} />} />
-        <Route exact path="/dashboard" element={<Dashboard student={student} {...paramProps} setTestStart={setTestStart} />
-        } />
-        <Route exact path="/questions"
-          element={<Questions questions={questions} setQuestions={setQuestions} testStart={testStart} setTestStart={setTestStart} />
+        <Route
+          exact path="/"
+          element={
+            !student ?
+              <Home
+                setStudent={setStudent}
+                setNotification={setNotification} />
+              : <Navigate to="/dashboard" />
+          } />
+        <Route
+          exact path="/dashboard"
+          element={
+            student ?
+              <Dashboard
+                student={student}
+                testParams={testParams}
+                setTestParams={setTestParams}
+                years={years}
+                subjects={subjects}
+              />
+              : <Navigate to="/" />
+          } />
+        <Route
+          exact path="/questions"
+          element={
+            student ?
+              <Questions
+                questions={questions}
+                setQuestions={setQuestions}
+                testStart={testStart}
+                setTestStart={setTestStart}
+              />
+              : <Navigate to="/" />
           } />
       </Routes>
     </div>

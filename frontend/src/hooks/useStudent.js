@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 const useStudent = () => {
     const [student, setStudent] = useState(null)
     useEffect(() => {
-      const login = JSON.parse(localStorage.getItem('student'))
-      if (login) {
-        setStudent(login)
+      const loggedIn = JSON.parse(localStorage.getItem('student'))
+      if (loggedIn) {
+        setStudent(loggedIn)
       }
     }, [])
     return {student, setStudent}

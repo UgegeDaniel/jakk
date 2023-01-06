@@ -1,5 +1,5 @@
 import React from 'react';
-import { LeftBtn, ItalisizedTypography } from '../'
+import { Btn, ItalisizedTypography } from '../'
 import { useStyles } from '../../styles'
 
 const ParamsFooter = ({ subject, examType, year }) => {
@@ -16,7 +16,7 @@ const ParamsFooter = ({ subject, examType, year }) => {
             <ItalisizedTypography>Allotted Time :
                 <span className={classes.chipStyle}> 2 hours</span>
             </ItalisizedTypography>
-            <LeftBtn btnTxt="Take Test" link="/questions" />
+            <Btn btnTxt="Take Test" link="/questions" />
         </React.Fragment>
     )
 }

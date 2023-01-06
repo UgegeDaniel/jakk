@@ -56,7 +56,7 @@ export const useStyles = makeStyles((theme) => ({
     heroText: { minHeight: '100%', minWidth: '100%' },
 
     //      >>>>        FORM STYLES
-    form: { padding: 'auto 0', margin: 'auto 0', width: '97%', height: '100%', },
+    form: { padding: 'auto 0', margin: 'auto 0', width: '90%', height: '100%', },
     googleButton: { marginBottom: theme.spacing(2), marginRight: 20 },
     inputExample: { fontSize: "12px" },
 

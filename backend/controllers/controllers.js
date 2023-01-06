@@ -4,28 +4,25 @@ const validator = require('validator')
 const bcrypt = require("bcrypt")
 const JWT_SECRET = process.env.JWT_SECRET
 
-//TOKEN CREATION
 const createToken = (_id) => {
     return jwt.sign({ _id }, JWT_SECRET, { expiresIn: '3d' })
 }
 
-//SIGN UP CREDENTIALS VALIDATION
 const validateSignUpCredentials = async (email, password, userName) => {
     const error = [];
     if (!email || !validator.isEmail(email)) {
+        console.log(email)
         error.push({ email: 'Please enter a valid Email Addresss' })
     }
     if (!password || !validator.isStrongPassword(password)) {
         error.push({ password: 'Please enter a strong password' })
     }
     if (!userName) {
-        return error.length && error;
+        error.push({ userName: 'Please enter a valid userName' })
     }
-
-    error.push({ userName: 'Please enter a valid userName' })
+    return error.length && error;
 }
 
-//LOG IN CREDENTIALS VALIDATION
 const validateLoginCredentials = async (password, hashedPassword) => {
     const match = await bcrypt.compare(password, hashedPassword)
     if (!match) {
@@ -33,23 +30,20 @@ const validateLoginCredentials = async (password, hashedPassword) => {
     }
 }
 
-//LOG IN CREDENTIALS CONTROLLER
 const loginStudent = async (req, res) => {
     const { email, password } = req.body;
     const student = await Student.findOne({ email })
-
     try {
         await validateLoginCredentials(password, student?.password)
         const token = createToken(student._id)
         const { userName } = student
-        res.status(200).json({ email, token, userName })
+        return res.status(200).json({ id:student._id, email, password, userName, token, history: student.history })
     }
     catch (error) {
         return res.status(400).json({ error: "Invalid email or password" })
     }
 }
 
-//SIGN UP CREDENTIALS CONTROLLER
 const signupStudent = async (req, res) => {
     const { email, password, userName } = req.body;
     const error = await validateSignUpCredentials(email, password, userName)
@@ -59,17 +53,17 @@ const signupStudent = async (req, res) => {
     try {
         const student = await Student.signup(email, password, userName)
         const token = createToken(student._id)
-        res.status(200).json({ id: student._id, email, token, userName })
+        return res.status(200).json({ id:student._id, email, password, userName, token, history: student.history })
     } catch (err) {
-        if (err.code = 11000) {
-            return res.status(400).json({ error: "User already exists" })
+        if (err.code === 11000) {
+            res.status(400).json({ error: "Student already exists" })
+            return
         }
         res.status(500).json(err)
     }
 
 }
 
-//GET STUDENT HISTORY CONTROLLER
 const getStudentHistory = async (req, res) => {
     try {
         res.status(200).json({ studentHistory: req.student })
@@ -78,7 +72,6 @@ const getStudentHistory = async (req, res) => {
     }
 }
 
-//UPDATE STUDENT HISTORY CONTROLLER
 const updateStudentHistory = async (req, res) => {
     const { newData } = req.body;
     try {

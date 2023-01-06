@@ -1,7 +1,7 @@
 import { CardActions, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 
-const LeftBtn = ({ btnTxt, handleClick, Icon, secondary, link }) => {
+const Btn = ({ btnTxt, handleClick, Icon, secondary, link }) => {
     return (
         <CardActions>
             <Link to={link}>
@@ -19,4 +19,4 @@ const LeftBtn = ({ btnTxt, handleClick, Icon, secondary, link }) => {
         </CardActions>
     )
 }
-export default LeftBtn
+export default Btn

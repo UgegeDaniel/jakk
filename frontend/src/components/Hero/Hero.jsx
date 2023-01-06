@@ -1,7 +1,7 @@
 import { Typography, Grid } from '@material-ui/core'
 import { Icon } from '../../assests'
 import { welcomeText } from '../../utils'
-import { LeftBtn } from '..'
+import { Btn } from '..'
 import PropTypes from 'prop-types';
 import { smilingGirl } from '../../assests'
 import { useStyles } from '../../styles';
@@ -15,7 +15,7 @@ const Hero = ({ setOpen }) => {
                 <div style={{ margin: "auto", maxWidth: "500px" }}>
                     <Typography color="secondary" align="center" component="p">{welcomeText}</Typography>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <LeftBtn
+                        <Btn
                             btnTxt="Continue With Google"
                             handleClick={handleOpen}
                             Icon={Icon}

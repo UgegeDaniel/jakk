@@ -2,11 +2,11 @@
 import { useState, memo } from 'react'
 import PropTypes from 'prop-types';
 import { Button, Typography, Paper, } from '@material-ui/core'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FaKey } from "react-icons/fa"
 import Inputs from './Inputs';
-import GoogleButton from './GoogleButton';
-import { LeftBtn } from '../'
+// import GoogleButton from './GoogleButton';
+import { Btn } from '../'
 import handleAuth from './handleAuth'
 
 const Form = memo(({ setStudent, setNotification }) => {
@@ -17,12 +17,31 @@ const Form = memo(({ setStudent, setNotification }) => {
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
-    const handleSubmit = (e) => {
-        if (password !== confirmPassword) {
-            setNotification({ show: false, msg: 'Passwords Do Not Match', type: 'danger' })
-        } else {
-            handleAuth(e, isLogin, credentials, setStudent, setNotification, navigate)
+    const onSuccess = (successMsg, successData) => {
+        setStudent(successData)
+        navigate('/dashboard')
+        setNotification({ show: true, msg: successMsg, type: 'success' })
+    }
+    const onError = (errors) => {
+        let errorMsg = ''
+        if(Array.isArray(errors)){
+            errors.forEach((error) => {
+                errorMsg += `${Object.values(error)}, `
+            })
+            setNotification({ show: true, msg: errorMsg, type: 'danger' })
+            return
         }
+        errorMsg = errors
+        setNotification({ show: true, msg: errorMsg, type: 'danger' })
+        return
+    }
+    const handleSubmit = (e) => {
+        if (!isLogin && (password !== confirmPassword)) {
+            setNotification({ show: true, msg: 'Passwords Do Not Match', type: 'danger' })
+            return
+        }
+        handleAuth(e, isLogin, credentials, onError, onSuccess)
+        return
     }
     return (
         <form autoComplete="off" noValidate gutterbottom="true" display="flex" align="center" >
@@ -32,8 +51,7 @@ const Form = memo(({ setStudent, setNotification }) => {
                 </Typography>
                 <Inputs handleChange={handleChange} credentials={credentials} isLogin={isLogin} />
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "auto 1rem" }}>
-                    <GoogleButton setNotification={setNotification} isLogin={isLogin} setStudent={setStudent} />
-                    <LeftBtn
+                    <Btn
                         btnTxt={!isLogin ? 'Sign up' : 'Login'}
                         handleClick={(e) => handleSubmit(e)}
                         Icon={FaKey}

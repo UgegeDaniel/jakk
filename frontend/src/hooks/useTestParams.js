@@ -10,9 +10,9 @@ const useTestParams = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await fetchSubjects()
-            const arrayOfData = data && Object.values(data)
+            const subjects = data && Object.values(data)
             if (data && subjects.length === 0) {
-                setSubjects(arrayOfData)
+                setSubjects(subjects)
             } else {
                 return
             }
